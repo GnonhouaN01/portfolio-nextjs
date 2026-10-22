@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Dashboard portfolio</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+input::placeholder,textarea::placeholder{color:#7C8592}
+</style>
+</helmet>
+<div style="position: relative; width: 100%; min-height: 100vh; display: flex; flex-wrap: wrap; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; line-height: 1.55">
+
+<!-- ============ SIDEBAR ============ -->
+<aside style="flex: 1 1 240px; box-sizing: border-box; background: #101318; border-right: 1px solid #23282F; padding: 24px 16px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; padding: 5px 9px; border: 1px solid #343B46; border-radius: 8px; color: {{accent}}">&lt;NO/&gt;</span>
+<div style="display: flex; flex-direction: column; line-height: 1.25">
+<span style="font-weight: 600; font-size: 15px">Portfolio</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8B94A1">admin</span>
+</div>
+</div>
+<nav aria-label="Dashboard" style="display: flex; flex-direction: column; gap: 4px">
+<sc-for list="{{nav}}" as="n" hint-placeholder-count="6">
+<button type="button" onClick="{{n.go}}" aria-current="{{n.current}}" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 44px; padding: 0 12px; border: none; border-radius: 10px; cursor: pointer; text-align: left; font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 500; background: {{n.bg}}; color: {{n.fg}}; box-shadow: inset 3px 0 0 {{n.bar}}">
+<span>{{n.label}}</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8B94A1">{{n.count}}</span>
+</button>
+</sc-for>
+</nav>
+<div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px">
+<a href="Main.dc.html" style="display: flex; align-items: center; justify-content: center; min-height: 44px; border-radius: 10px; border: 1px solid #343B46; color: #ECEEF2; text-decoration: none; font-size: 14px; font-weight: 500">Voir le site ↗</a>
+<div style="display: flex; align-items: center; gap: 10px; padding: 10px 8px; border-top: 1px solid #23282F">
+<span aria-hidden="true" style="width: 36px; height: 36px; border-radius: 50%; background: #252A33; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: {{accent}}">NO</span>
+<div style="display: flex; flex-direction: column; line-height: 1.3; min-width: 0">
+<span style="font-size: 14px; font-weight: 500">N'golo Ouattara</span>
+<span style="font-size: 12px; color: #8B94A1">Administrateur</span>
+</div>
+</div>
+</div>
+</aside>
+
+<!-- ============ CONTENU ============ -->
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 32px clamp(16px, 3vw, 40px) 56px; display: flex; flex-direction: column; gap: 28px">
+
+<sc-if value="{{toastOn}}" hint-placeholder-val="{{false}}">
+<div role="status" style="position: absolute; top: 20px; right: 24px; z-index: 5; display: flex; align-items: center; gap: 14px; padding: 12px 12px 12px 16px; border-radius: 12px; background: #17241E; border: 1px solid #2E3E36; color: #B8E7CF; font-size: 14px">
+<span>✓ {{toast}}</span>
+<button type="button" onClick="{{hideToast}}" aria-label="Fermer" style="width: 32px; height: 32px; border: none; border-radius: 8px; background: transparent; color: #B8E7CF; cursor: pointer; font-size: 16px">×</button>
+</div>
+</sc-if>
+
+<!-- ===== VUE D'ENSEMBLE ===== -->
+<sc-if value="{{v.overview}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div>
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: {{accent}}">~/overview</div>
+<h1 style="margin: 6px 0 0; font-size: 30px; font-weight: 600; letter-spacing: -0.02em">Bonjour N'golo</h1>
+<p style="margin: 4px 0 0; color: #A0A8B4">Voici l'état de votre portfolio.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<button type="button" onClick="{{goSections}}" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #343B46; background: #1C2027; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer">+ Ajouter une section</button>
+<button type="button" onClick="{{newProject}}" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: none; background: {{accent}}; color: #15181E; font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer">+ Nouveau projet</button>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px">
+<div style="border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; color: #A0A8B4">Projets publiés</span>
+<span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em">{{kpi.projects}}</span>
+<span style="font-size: 12px; color: #8B94A1">{{kpi.drafts}} brouillons</span>
+</div>
+<div style="border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; color: #A0A8B4">Articles publiés</span>
+<span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em">{{kpi.posts}}</span>
+<span style="font-size: 12px; color: #8B94A1">{{kpi.postsDraft}} brouillons</span>
+</div>
+<div style="border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; color: #A0A8B4">Sections visibles</span>
+<span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em">{{kpi.sections}}</span>
+<span style="font-size: 12px; color: #8B94A1">sur le site public</span>
+</div>
+<div style="border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; color: #A0A8B4">Profil complété</span>
+<span style="font-size: 30px; font-weight: 600; letter-spacing: -0.02em">{{kpi.pct}}</span>
+<span aria-hidden="true" style="display: block; height: 6px; border-radius: 3px; background: #2A303A; overflow: hidden"><span style="display: block; height: 6px; width: {{kpi.pct}}; background: {{accent}}"></span></span>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; align-items: start">
+<div style="border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; justify-content: space-between; align-items: center">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Profil à compléter</h2>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8B94A1">{{kpi.doneCount}}</span>
+</div>
+<div style="display: flex; flex-direction: column">
+<sc-for list="{{checklist}}" as="c" hint-placeholder-count="6">
+<label style="display: flex; align-items: center; gap: 12px; min-height: 44px; border-top: 1px solid #262B34; cursor: pointer; font-size: 14px; color: {{c.fg}}">
+<input type="checkbox" checked="{{c.done}}" onChange="{{c.toggle}}" style="width: 18px; height: 18px; accent-color: {{accent}}; margin: 0">
+<span style="text-decoration: {{c.deco}}">{{c.label}}</span>
+</label>
+</sc-for>
+</div>
+</div>
+<div style="border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Actions rapides</h2>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<button type="button" onClick="{{newProject}}" style="min-height: 76px; padding: 14px; border-radius: 12px; border: 1px solid #2D333D; background: #15181E; color: #ECEEF2; text-align: left; cursor: pointer; font-family: 'Sora', sans-serif; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{accent}}">+ projet</span><span style="font-size: 14px; font-weight: 500">Ajouter un projet</span></button>
+<button type="button" onClick="{{newPost}}" style="min-height: 76px; padding: 14px; border-radius: 12px; border: 1px solid #2D333D; background: #15181E; color: #ECEEF2; text-align: left; cursor: pointer; font-family: 'Sora', sans-serif; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9ECE6A">+ article</span><span style="font-size: 14px; font-weight: 500">Rédiger un article</span></button>
+<button type="button" onClick="{{goSections}}" style="min-height: 76px; padding: 14px; border-radius: 12px; border: 1px solid #2D333D; background: #15181E; color: #ECEEF2; text-align: left; cursor: pointer; font-family: 'Sora', sans-serif; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #7AA2F7">+ section</span><span style="font-size: 14px; font-weight: 500">Ajouter une section</span></button>
+<button type="button" onClick="{{goProfile}}" style="min-height: 76px; padding: 14px; border-radius: 12px; border: 1px solid #2D333D; background: #15181E; color: #ECEEF2; text-align: left; cursor: pointer; font-family: 'Sora', sans-serif; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #BB9AF7">~/profil</span><span style="font-size: 14px; font-weight: 500">Mettre à jour le profil</span></button>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+
+<!-- ===== PROFIL & CONTACT ===== -->
+<sc-if value="{{v.profile}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div>
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: {{accent}}">~/profil</div>
+<h1 style="margin: 6px 0 0; font-size: 30px; font-weight: 600; letter-spacing: -0.02em">Profil &amp; contact</h1>
+<p style="margin: 4px 0 0; color: #A0A8B4">Ces informations alimentent l'en-tête, la section À propos et la section Contact.</p>
+</div>
+<button type="button" onClick="{{saveProfile}}" style="min-height: 44px; padding: 0 20px; border-radius: 10px; border: none; background: {{accent}}; color: #15181E; font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer">Enregistrer</button>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; align-items: start">
+<div style="border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 22px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Identité</h2>
+<div style="display: flex; align-items: center; gap: 16px">
+<span aria-hidden="true" style="width: 72px; height: 72px; border-radius: 50%; background: #252A33; border: 1px dashed #4A525E; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 600; color: {{accent}}">NO</span>
+<button type="button" style="min-height: 44px; padding: 0 14px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 14px; cursor: pointer">Changer la photo</button>
+</div>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">Nom complet<input type="text" defaultValue="Gnonhoua N'golo Ouattara" style="height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; box-sizing: border-box; width: 100%"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">Titre (FR)<input type="text" defaultValue="Développeur Full Stack Web &amp; Mobile" style="height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; box-sizing: border-box; width: 100%"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">Titre (EN)<input type="text" defaultValue="Full Stack Web &amp; Mobile Developer" style="height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; box-sizing: border-box; width: 100%"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">Disponibilité
+<select style="height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px">
+<option>Disponible · CDI, freelance ou remote</option>
+<option>En poste · ouvert aux opportunités</option>
+<option>Indisponible</option>
+</select></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">CV (PDF)
+<span style="display: flex; align-items: center; justify-content: center; min-height: 64px; border: 1px dashed #4A525E; border-radius: 10px; color: #A0A8B4; font-weight: 400">Glissez votre CV ici ou cliquez pour téléverser</span></label>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 22px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Présentation</h2>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">Bio (FR)<textarea rows="4" placeholder="Diplômé de l'ESATIC, j'ai passé 14 mois chez FlyFret…" style="padding: 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; box-sizing: border-box; width: 100%; resize: vertical"></textarea></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">Bio (EN)<textarea rows="4" placeholder="An ESATIC graduate, I spent 14 months at FlyFret…" style="padding: 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; box-sizing: border-box; width: 100%; resize: vertical"></textarea></label>
+</div>
+<div style="border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 22px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Contact (affiché en dur sur le site)</h2>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">E-mail<input type="email" placeholder="votre@email.com" style="height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; box-sizing: border-box; width: 100%"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">LinkedIn<input type="url" defaultValue="https://www.linkedin.com/in/gnonhoua-n-golo-ouattara-7b4180253" style="height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; box-sizing: border-box; width: 100%"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">WhatsApp<input type="tel" placeholder="+225 XX XX XX XX XX" style="height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; box-sizing: border-box; width: 100%"></label>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+
+<!-- ===== PROJETS ===== -->
+<sc-if value="{{v.projects}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div>
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: {{accent}}">~/projets</div>
+<h1 style="margin: 6px 0 0; font-size: 30px; font-weight: 600; letter-spacing: -0.02em">Projets</h1>
+<p style="margin: 4px 0 0; color: #A0A8B4">Chaque projet publié apparaît dans les filtres et le carrousel, avec sa fiche détaillée.</p>
+</div>
+<button type="button" onClick="{{newProject}}" style="min-height: 44px; padding: 0 18px; border-radius: 10px; border: none; background: {{accent}}; color: #15181E; font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer">+ Nouveau projet</button>
+</div>
+
+<sc-if value="{{editing}}" hint-placeholder-val="{{false}}">
+<div style="border: 1px solid {{accent}}; border-radius: 14px; background: #1C2027; padding: 24px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+<h2 style="margin: 0; font-size: 19px; font-weight: 600">{{editTitle}}</h2>
+<div role="group" aria-label="Langue du contenu" style="display: flex; padding: 3px; border: 1px solid #343B46; border-radius: 999px; background: #15181E">
+<button type="button" aria-pressed="{{elFrStr}}" onClick="{{setElFr}}" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; min-width: 52px; height: 36px; border: none; border-radius: 999px; cursor: pointer; background: {{elFrBg}}; color: {{elFrFg}}">FR</button>
+<button type="button" aria-pressed="{{elEnStr}}" onClick="{{setElEn}}" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; min-width: 52px; height: 36px; border: none; border-radius: 999px; cursor: pointer; background: {{elEnBg}}; color: {{elEnFg}}">EN</button>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">Titre ({{elLabel}})<input type="text" placeholder="{{editPlaceholder}}" style="height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; box-sizing: border-box; width: 100%"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">Année<input type="text" placeholder="2025" style="height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; box-sizing: border-box; width: 100%"></label>
+</div>
+<fieldset style="margin: 0; padding: 0; border: none; display: flex; flex-direction: column; gap: 8px">
+<legend style="font-size: 13px; font-weight: 500; color: #C9CED6; padding: 0; margin-bottom: 8px">Catégories (filtres du site)</legend>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<label style="display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border: 1px solid #343B46; border-radius: 999px; font-size: 14px; cursor: pointer"><input type="checkbox" defaultChecked="{{yes}}" style="accent-color: {{accent}}; margin: 0">Web</label>
+<label style="display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border: 1px solid #343B46; border-radius: 999px; font-size: 14px; cursor: pointer"><input type="checkbox" style="accent-color: {{accent}}; margin: 0">Mobile</label>
+<label style="display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border: 1px solid #343B46; border-radius: 999px; font-size: 14px; cursor: pointer"><input type="checkbox" style="accent-color: {{accent}}; margin: 0">Back-end / API</label>
+<label style="display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border: 1px solid #343B46; border-radius: 999px; font-size: 14px; cursor: pointer"><input type="checkbox" style="accent-color: {{accent}}; margin: 0">UI/UX</label>
+</div>
+</fieldset>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">Description courte ({{elLabel}})<textarea rows="2" placeholder="Une phrase affichée sur la carte du projet." style="padding: 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; box-sizing: border-box; width: 100%; resize: vertical"></textarea></label>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">Contexte<textarea rows="3" placeholder="Pour qui, quel besoin." style="padding: 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; box-sizing: border-box; width: 100%; resize: vertical"></textarea></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">Mon rôle<textarea rows="3" placeholder="Vos responsabilités sur le projet." style="padding: 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; box-sizing: border-box; width: 100%; resize: vertical"></textarea></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">Fonctionnalités clés (une par ligne)<textarea rows="3" placeholder="Authentification&#10;Tableau de bord&#10;Notifications" style="padding: 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; box-sizing: border-box; width: 100%; resize: vertical"></textarea></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">Résultat<textarea rows="3" placeholder="Utilisateurs, chiffres, retours." style="padding: 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; box-sizing: border-box; width: 100%; resize: vertical"></textarea></label>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">Stack (séparée par des virgules)<input type="text" placeholder="React, Node.js, PostgreSQL" style="height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; box-sizing: border-box; width: 100%"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">Lien démo<input type="url" placeholder="https://" style="height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; box-sizing: border-box; width: 100%"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">Lien code<input type="url" placeholder="https://github.com/…" style="height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; box-sizing: border-box; width: 100%"></label>
+</div>
+<div style="display: flex; align-items: center; justify-content: center; min-height: 96px; border: 1px dashed #4A525E; border-radius: 12px; color: #A0A8B4; font-size: 14px; text-align: center; padding: 12px">Captures d'écran du carrousel : glissez vos images ici (3 recommandées)</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px">
+<button type="button" onClick="{{cancelEdit}}" style="min-height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid #343B46; background: transparent; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 14px; cursor: pointer">Annuler</button>
+<button type="button" onClick="{{saveDraft}}" style="min-height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 14px; cursor: pointer">Enregistrer en brouillon</button>
+<button type="button" onClick="{{publishProject}}" style="min-height: 44px; padding: 0 18px; border-radius: 10px; border: none; background: {{accent}}; color: #15181E; font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer">Publier</button>
+</div>
+</div>
+</sc-if>
+
+<div style="border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; overflow-x: auto">
+<table style="width: 100%; min-width: 680px; border-collapse: collapse; font-size: 14px">
+<thead>
+<tr style="text-align: left; color: #A0A8B4; font-size: 12px; font-family: 'JetBrains Mono', monospace">
+<th style="padding: 14px 18px; font-weight: 500; border-bottom: 1px solid #2D333D">PROJET</th>
+<th style="padding: 14px 18px; font-weight: 500; border-bottom: 1px solid #2D333D">CATÉGORIE</th>
+<th style="padding: 14px 18px; font-weight: 500; border-bottom: 1px solid #2D333D">ANNÉE</th>
+<th style="padding: 14px 18px; font-weight: 500; border-bottom: 1px solid #2D333D">STATUT</th>
+<th style="padding: 14px 18px; font-weight: 500; border-bottom: 1px solid #2D333D">EN AVANT</th>
+<th style="padding: 14px 18px; font-weight: 500; border-bottom: 1px solid #2D333D"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Actions</span></th>
+</tr>
+</thead>
+<tbody>
+<sc-for list="{{projects}}" as="p" hint-placeholder-count="7">
+<tr>
+<td style="padding: 12px 18px; border-bottom: 1px solid #262B34; font-weight: 500; color: #FFFFFF">{{p.title}}</td>
+<td style="padding: 12px 18px; border-bottom: 1px solid #262B34; color: #C9CED6">{{p.cat}}</td>
+<td style="padding: 12px 18px; border-bottom: 1px solid #262B34; color: #C9CED6; font-family: 'JetBrains Mono', monospace; font-size: 13px">{{p.year}}</td>
+<td style="padding: 12px 18px; border-bottom: 1px solid #262B34"><span style="font-size: 12px; padding: 3px 10px; border-radius: 999px; background: {{p.stBg}}; color: {{p.stFg}}">{{p.status}}</span></td>
+<td style="padding: 4px 18px; border-bottom: 1px solid #262B34">
+<button type="button" role="switch" aria-checked="{{p.featStr}}" aria-label="Mettre en avant" onClick="{{p.toggleFeat}}" style="width: 52px; height: 44px; border: none; background: transparent; padding: 0; cursor: pointer; display: flex; align-items: center">
+<span style="width: 40px; height: 22px; border-radius: 999px; background: {{p.trk}}; display: flex; align-items: center; justify-content: {{p.just}}; padding: 2px; box-sizing: border-box"><span style="width: 18px; height: 18px; border-radius: 50%; background: #FFFFFF; display: block"></span></span>
+</button>
+</td>
+<td style="padding: 4px 18px; border-bottom: 1px solid #262B34; text-align: right">
+<button type="button" onClick="{{p.edit}}" style="min-height: 40px; padding: 0 14px; border-radius: 8px; border: 1px solid #343B46; background: transparent; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 13px; cursor: pointer">Modifier</button>
+</td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</div>
+</sc-if>
+
+<!-- ===== PARCOURS ===== -->
+<sc-if value="{{v.history}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div>
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: {{accent}}">~/parcours</div>
+<h1 style="margin: 6px 0 0; font-size: 30px; font-weight: 600; letter-spacing: -0.02em">Expérience &amp; parcours</h1>
+<p style="margin: 4px 0 0; color: #A0A8B4">Chaque entrée devient une diapositive des carrousels « git log » du site.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; align-items: start">
+<div style="border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 22px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Expériences</h2>
+<button type="button" onClick="{{addExp}}" style="min-height: 40px; padding: 0 14px; border-radius: 8px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 13px; cursor: pointer">+ Ajouter</button>
+</div>
+<sc-for list="{{expList}}" as="e" hint-placeholder-count="2">
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid #262B34">
+<span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 16px; color: #4E5561; cursor: grab">⋮⋮</span>
+<div style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column">
+<span style="font-weight: 500">{{e.title}}</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8B94A1">{{e.date}}</span>
+</div>
+<button type="button" style="min-height: 40px; padding: 0 12px; border-radius: 8px; border: 1px solid #343B46; background: transparent; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 13px; cursor: pointer">Modifier</button>
+</div>
+</sc-for>
+</div>
+<div style="border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 22px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Formations &amp; certifications</h2>
+<button type="button" onClick="{{addEdu}}" style="min-height: 40px; padding: 0 14px; border-radius: 8px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 13px; cursor: pointer">+ Ajouter</button>
+</div>
+<sc-for list="{{eduList}}" as="e" hint-placeholder-count="3">
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid #262B34">
+<span aria-hidden="true" style="font-family: 'JetBrains Mono', monospace; font-size: 16px; color: #4E5561; cursor: grab">⋮⋮</span>
+<div style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column">
+<span style="font-weight: 500">{{e.title}}</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8B94A1">{{e.date}}</span>
+</div>
+<button type="button" style="min-height: 40px; padding: 0 12px; border-radius: 8px; border: 1px solid #343B46; background: transparent; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 13px; cursor: pointer">Modifier</button>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</sc-if>
+
+<!-- ===== SECTIONS DU SITE ===== -->
+<sc-if value="{{v.sections}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div>
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: {{accent}}">~/sections</div>
+<h1 style="margin: 6px 0 0; font-size: 30px; font-weight: 600; letter-spacing: -0.02em">Sections du site</h1>
+<p style="margin: 4px 0 0; color: #A0A8B4">Affichez, masquez, réordonnez ou ajoutez des sections à votre portfolio.</p>
+</div>
+<button type="button" onClick="{{toggleLibrary}}" aria-expanded="{{libStr}}" style="min-height: 44px; padding: 0 18px; border-radius: 10px; border: none; background: {{accent}}; color: #15181E; font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer">+ Ajouter une section</button>
+</div>
+
+<sc-if value="{{libOpen}}" hint-placeholder-val="{{false}}">
+<div style="border: 1px solid {{accent}}; border-radius: 14px; background: #1C2027; padding: 22px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Bibliothèque de sections</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px">
+<sc-for list="{{library}}" as="l" hint-placeholder-count="6">
+<div style="border: 1px solid #2D333D; border-radius: 12px; background: #15181E; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-weight: 600">{{l.name}}</span>
+<span style="font-size: 13px; color: #A0A8B4; flex-grow: 1">{{l.desc}}</span>
+<sc-if value="{{l.available}}" hint-placeholder-val="{{true}}">
+<button type="button" onClick="{{l.add}}" style="align-self: flex-start; min-height: 40px; padding: 0 14px; border-radius: 8px; border: 1px solid #343B46; background: #1C2027; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer">+ Ajouter</button>
+</sc-if>
+<sc-if value="{{l.added}}" hint-placeholder-val="{{false}}">
+<span style="align-self: flex-start; font-size: 12px; padding: 4px 10px; border-radius: 999px; background: #17241E; color: #B8E7CF; border: 1px solid #2E3E36">✓ Ajoutée</span>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<div style="border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 6px 20px">
+<sc-for list="{{sections}}" as="sec" hint-placeholder-count="8">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #262B34">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8B94A1; width: 24px">{{sec.num}}</span>
+<div style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column">
+<span style="font-weight: 500; color: {{sec.fg}}">{{sec.name}}</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8B94A1">{{sec.path}} {{sec.note}}</span>
+</div>
+<div style="display: flex; align-items: center; gap: 4px">
+<button type="button" aria-label="{{sec.upLabel}}" onClick="{{sec.up}}" style="width: 40px; height: 40px; border-radius: 8px; border: 1px solid #343B46; background: transparent; color: #C9CED6; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
+<button type="button" aria-label="{{sec.downLabel}}" onClick="{{sec.down}}" style="width: 40px; height: 40px; border-radius: 8px; border: 1px solid #343B46; background: transparent; color: #C9CED6; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+<sc-if value="{{sec.locked}}" hint-placeholder-val="{{false}}">
+<span style="font-size: 12px; color: #8B94A1; padding: 0 10px; min-width: 52px; text-align: center">Fixe</span>
+</sc-if>
+<sc-if value="{{sec.free}}" hint-placeholder-val="{{true}}">
+<button type="button" role="switch" aria-checked="{{sec.onStr}}" aria-label="{{sec.switchLabel}}" onClick="{{sec.toggle}}" style="width: 52px; height: 44px; border: none; background: transparent; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center">
+<span style="width: 40px; height: 22px; border-radius: 999px; background: {{sec.trk}}; display: flex; align-items: center; justify-content: {{sec.just}}; padding: 2px; box-sizing: border-box"><span style="width: 18px; height: 18px; border-radius: 50%; background: #FFFFFF; display: block"></span></span>
+</button>
+</sc-if>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<!-- ===== BLOG & ACTUALITES ===== -->
+<sc-if value="{{v.blog}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div>
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: {{accent}}">~/blog</div>
+<h1 style="margin: 6px 0 0; font-size: 30px; font-weight: 600; letter-spacing: -0.02em">Blog &amp; actualités</h1>
+<p style="margin: 4px 0 0; color: #A0A8B4">Articles, annonces et tutoriels affichés dans la section Actualités du site.</p>
+</div>
+<button type="button" onClick="{{newPost}}" style="min-height: 44px; padding: 0 18px; border-radius: 10px; border: none; background: {{accent}}; color: #15181E; font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer">+ Nouvel article</button>
+</div>
+
+<sc-if value="{{writing}}" hint-placeholder-val="{{false}}">
+<div style="border: 1px solid {{accent}}; border-radius: 14px; background: #1C2027; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">Type
+<select style="height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px"><option>Article</option><option>Actualité</option><option>Tutoriel</option></select></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">Titre (FR)<input type="text" placeholder="Titre de l'article" style="height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; box-sizing: border-box; width: 100%"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: #C9CED6">Titre (EN)<input type="text" placeholder="Post title" style="height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; box-sizing: border-box; width: 100%"></label>
+</div>
+<div style="display: flex; align-items: center; justify-content: center; min-height: 80px; border: 1px dashed #4A525E; border-radius: 12px; color: #A0A8B4; font-size: 14px">Image de couverture : glissez une image ici</div>
+<div style="border: 1px solid #343B46; border-radius: 10px; background: #15181E; overflow: hidden">
+<div role="toolbar" aria-label="Mise en forme" style="display: flex; flex-wrap: wrap; gap: 2px; padding: 6px; border-bottom: 1px solid #2D333D">
+<button type="button" aria-label="Gras" style="width: 40px; height: 40px; border: none; border-radius: 8px; background: transparent; color: #ECEEF2; font-weight: 700; cursor: pointer; font-family: 'Sora', sans-serif">B</button>
+<button type="button" aria-label="Italique" style="width: 40px; height: 40px; border: none; border-radius: 8px; background: transparent; color: #ECEEF2; font-style: italic; cursor: pointer; font-family: 'Sora', sans-serif">I</button>
+<button type="button" aria-label="Titre" style="width: 40px; height: 40px; border: none; border-radius: 8px; background: transparent; color: #ECEEF2; cursor: pointer; font-family: 'Sora', sans-serif; font-weight: 600">H2</button>
+<button type="button" aria-label="Bloc de code" style="width: 40px; height: 40px; border: none; border-radius: 8px; background: transparent; color: #ECEEF2; cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 13px">&lt;/&gt;</button>
+<button type="button" aria-label="Lien" style="width: 40px; height: 40px; border: none; border-radius: 8px; background: transparent; color: #ECEEF2; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"></path><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"></path></svg></button>
+<button type="button" aria-label="Image" style="width: 40px; height: 40px; border: none; border-radius: 8px; background: transparent; color: #ECEEF2; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><polyline points="21 16 15 11 5 20"></polyline></svg></button>
+</div>
+<label style="display: block"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Contenu</span><textarea rows="7" placeholder="Rédigez votre article…" style="display: block; width: 100%; box-sizing: border-box; padding: 14px; border: none; background: transparent; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 15px; resize: vertical"></textarea></label>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px">
+<button type="button" onClick="{{cancelPost}}" style="min-height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid #343B46; background: transparent; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 14px; cursor: pointer">Annuler</button>
+<button type="button" onClick="{{draftPost}}" style="min-height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid #343B46; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 14px; cursor: pointer">Enregistrer en brouillon</button>
+<button type="button" onClick="{{publishPost}}" style="min-height: 44px; padding: 0 18px; border-radius: 10px; border: none; background: {{accent}}; color: #15181E; font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer">Publier</button>
+</div>
+</div>
+</sc-if>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{posts}}" as="po" hint-placeholder-count="3">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; padding: 16px 20px; border: 1px solid #2D333D; border-radius: 12px; background: #1C2027">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{po.typeColor}}; width: 92px">{{po.type}}</span>
+<span style="flex: 1 1 260px; min-width: 0; font-weight: 500">{{po.t}}</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8B94A1">{{po.date}}</span>
+<span style="font-size: 12px; padding: 3px 10px; border-radius: 999px; background: {{po.stBg}}; color: {{po.stFg}}">{{po.status}}</span>
+<button type="button" onClick="{{po.toggle}}" style="min-height: 40px; padding: 0 14px; border-radius: 8px; border: 1px solid #343B46; background: transparent; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 13px; cursor: pointer">{{po.action}}</button>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#FF8A3D","options":["#FF8A3D","#38BDF8","#34D399","#A78BFA"]},"startView":{"editor":"enum","options":["overview","profile","projects","history","sections","blog"],"default":"overview"},"startEditing":{"editor":null,"default":null},"startLib":{"editor":null,"default":false},"startWriting":{"editor":null,"default":false},"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var self = this;
+    var s = this.state || {};
+    var accent = this.props.accent ?? '#FF8A3D';
+    var P0 = this.props || {};
+    var pick = function (k, d) { return s[k] !== undefined ? s[k] : d; };
+    var view = pick('view', P0.startView || 'overview');
+    var set = function (o) { self.setState(o); };
+    var today = '18/10/2026';
+
+    var PUB = { bg: '#17241E', fg: '#B8E7CF' };
+    var DRAFT = { bg: '#2A2620', fg: '#F2D2A9' };
+
+    // ---- Projets
+    var baseProjects = [
+      { id: 1, t: 'FlyFret — Site officiel', cat: 'Web', year: '2025', pub: true, feat: true },
+      { id: 2, t: 'FlyFret — Plateforme interne', cat: 'Web · API', year: '2025', pub: true, feat: true },
+      { id: 3, t: '[Application mobile]', cat: 'Mobile', year: '[20XX]', pub: false, feat: false },
+      { id: 4, t: '[API REST]', cat: 'Back-end / API', year: '[20XX]', pub: false, feat: false },
+      { id: 5, t: "[Projet de fin d'études ESATIC]", cat: 'Web', year: '2024', pub: false, feat: false },
+      { id: 6, t: '[Maquettes UI/UX]', cat: 'UI/UX', year: '[20XX]', pub: false, feat: false },
+      { id: 7, t: '[Application full stack]', cat: 'Mobile · API', year: '[20XX]', pub: false, feat: false }
+    ];
+    var projects = s.projects || baseProjects;
+    var editing = pick('editing', P0.startEditing || null);
+    var editRow = null;
+    projects.forEach(function (p) { if (p.id === editing) editRow = p; });
+
+    var saveProject = function (pub, msg) {
+      var list = projects.map(function (p) { return p.id === editing ? Object.assign({}, p, { pub: pub || p.pub }) : p; });
+      if (editing === 'new') list = list.concat([{ id: Date.now(), t: '[Nouveau projet]', cat: 'Web', year: '2026', pub: pub, feat: false }]);
+      set({ projects: list, editing: null, toast: msg });
+    };
+
+    var projectRows = projects.map(function (p) {
+      return {
+        title: p.t, cat: p.cat, year: p.year,
+        status: p.pub ? 'Publié' : 'Brouillon',
+        stBg: p.pub ? PUB.bg : DRAFT.bg, stFg: p.pub ? PUB.fg : DRAFT.fg,
+        featStr: p.feat ? 'true' : 'false',
+        trk: p.feat ? accent : '#3A414D', just: p.feat ? 'flex-end' : 'flex-start',
+        toggleFeat: function () { set({ projects: projects.map(function (q) { return q.id === p.id ? Object.assign({}, q, { feat: !q.feat }) : q; }) }); },
+        edit: function () { set({ editing: p.id, el: 'fr' }); }
+      };
+    });
+
+    // ---- Sections
+    var baseSections = [
+      { id: 'hero', name: 'En-tête & présentation', path: '#top', on: true, locked: true },
+      { id: 'about', name: 'À propos', path: '#apropos', on: true },
+      { id: 'projects', name: 'Projets', path: '#projets', on: true },
+      { id: 'history', name: 'Expérience & parcours', path: '#parcours', on: true },
+      { id: 'orientation', name: 'Orientation professionnelle', path: '#orientation', on: true },
+      { id: 'skills', name: 'Compétences', path: '#competences', on: true },
+      { id: 'blog', name: 'Actualités & blog', path: '#blog', on: true },
+      { id: 'contact', name: 'Contact', path: '#contact', on: true, locked: true }
+    ];
+    var sections = s.sections || baseSections;
+    var library = [
+      { id: 'blog', name: 'Actualités & blog', path: '#blog', desc: 'Articles, annonces et tutoriels.' },
+      { id: 'testimonials', name: 'Témoignages', path: '#temoignages', desc: 'Recommandations de collègues, clients ou enseignants.' },
+      { id: 'certifs', name: 'Certifications', path: '#certifications', desc: 'Badges et certificats avec lien de vérification.' },
+      { id: 'services', name: 'Services', path: '#services', desc: 'Ce que vous proposez en freelance.' },
+      { id: 'gallery', name: 'Galerie', path: '#galerie', desc: "Photos d'événements, hackathons ou conférences." },
+      { id: 'events', name: 'Événements & talks', path: '#evenements', desc: 'Meetups, conférences et hackathons.' }
+    ];
+    var has = function (id) { return sections.some(function (x) { return x.id === id; }); };
+    var move = function (i, d) {
+      var j = i + d;
+      if (j < 0 || j >= sections.length) return;
+      var arr = sections.slice();
+      var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+      set({ sections: arr });
+    };
+    var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
+    var sectionRows = sections.map(function (x, i) {
+      return {
+        num: pad(i + 1), name: x.name, path: x.path,
+        note: x.on ? '' : '· masquée',
+        fg: x.on ? '#FFFFFF' : '#8B94A1',
+        locked: !!x.locked, free: !x.locked,
+        onStr: x.on ? 'true' : 'false',
+        switchLabel: 'Afficher la section ' + x.name,
+        upLabel: 'Monter ' + x.name, downLabel: 'Descendre ' + x.name,
+        trk: x.on ? accent : '#3A414D', just: x.on ? 'flex-end' : 'flex-start',
+        toggle: function () { set({ sections: sections.map(function (y) { return y.id === x.id ? Object.assign({}, y, { on: !y.on }) : y; }) }); },
+        up: function () { move(i, -1); },
+        down: function () { move(i, 1); }
+      };
+    });
+    var libRows = library.map(function (l) {
+      return {
+        name: l.name, desc: l.desc, available: !has(l.id), added: has(l.id),
+        add: function () {
+          var arr = sections.slice();
+          var at = arr.length - 1; // avant Contact
+          arr.splice(at, 0, { id: l.id, name: l.name, path: l.path, on: true });
+          set({ sections: arr, toast: 'Section « ' + l.name + ' » ajoutée au site' });
+        }
+      };
+    });
+
+    // ---- Blog
+    var basePosts = [
+      { id: 1, t: "[Ce que j'ai appris en développant une plateforme interne]", type: 'Article', pub: false, date: '—' },
+      { id: 2, t: '[Nouvelle certification obtenue]', type: 'Actualité', pub: false, date: '—' },
+      { id: 3, t: '[Déployer une API en production : ma checklist]', type: 'Tutoriel', pub: false, date: '—' }
+    ];
+    var posts = s.posts || basePosts;
+    var typeColor = { 'Article': '#9ECE6A', 'Actualité': '#7AA2F7', 'Tutoriel': '#E0AF68' };
+    var postRows = posts.map(function (p) {
+      return {
+        t: p.t, type: p.type.toUpperCase(), typeColor: typeColor[p.type] || '#9ECE6A',
+        date: p.date, status: p.pub ? 'Publié' : 'Brouillon',
+        stBg: p.pub ? PUB.bg : DRAFT.bg, stFg: p.pub ? PUB.fg : DRAFT.fg,
+        action: p.pub ? 'Dépublier' : 'Publier',
+        toggle: function () {
+          set({ posts: posts.map(function (q) { return q.id === p.id ? Object.assign({}, q, { pub: !q.pub, date: !q.pub ? today : q.date }) : q; }),
+                toast: p.pub ? 'Article repassé en brouillon' : 'Article publié sur le site' });
+        }
+      };
+    });
+    var addPost = function (pub) {
+      set({ posts: [{ id: Date.now(), t: '[Nouvel article]', type: 'Article', pub: pub, date: pub ? today : '—' }].concat(posts),
+            writing: false, toast: pub ? 'Article publié sur le site' : 'Brouillon enregistré' });
+    };
+
+    // ---- Checklist
+    var baseChecks = [
+      { id: 'photo', label: 'Ajouter votre photo de profil' },
+      { id: 'stack', label: 'Renseigner votre stack technique' },
+      { id: 'contact', label: 'Ajouter votre e-mail et votre numéro WhatsApp' },
+      { id: 'projects', label: 'Compléter les 5 projets en brouillon' },
+      { id: 'metric', label: 'Ajouter un résultat chiffré chez FlyFret' },
+      { id: 'cv', label: 'Téléverser votre CV' },
+      { id: 'post', label: 'Publier votre premier article' }
+    ];
+    var done = s.done || {};
+    var nDone = baseChecks.filter(function (c) { return done[c.id]; }).length;
+    var checklist = baseChecks.map(function (c) {
+      var d = !!done[c.id];
+      return {
+        label: c.label, done: d,
+        fg: d ? '#8B94A1' : '#DADEE4', deco: d ? 'line-through' : 'none',
+        toggle: function () { var o = Object.assign({}, done); o[c.id] = !d; set({ done: o }); }
+      };
+    });
+
+    // ---- Nav
+    var nPub = projects.filter(function (p) { return p.pub; }).length;
+    var nOn = sections.filter(function (x) { return x.on; }).length;
+    var nPosts = posts.filter(function (p) { return p.pub; }).length;
+    var navDef = [
+      { id: 'overview', label: "Vue d'ensemble", count: '' },
+      { id: 'profile', label: 'Profil & contact', count: '' },
+      { id: 'projects', label: 'Projets', count: '' + projects.length },
+      { id: 'history', label: 'Parcours', count: '5' },
+      { id: 'sections', label: 'Sections du site', count: '' + nOn },
+      { id: 'blog', label: 'Blog & actualités', count: '' + posts.length }
+    ];
+    var nav = navDef.map(function (n) {
+      var a = n.id === view;
+      return {
+        label: n.label, count: n.count,
+        current: a ? 'page' : 'false',
+        bg: a ? '#1C2027' : 'transparent', fg: a ? '#FFFFFF' : '#B6BDC8', bar: a ? accent : 'transparent',
+        go: function () { set({ view: n.id, editing: null, writing: false }); }
+      };
+    });
+    var v = {};
+    navDef.forEach(function (n) { v[n.id] = n.id === view; });
+
+    var el = s.el || 'fr';
+    var libOpen = !!pick('libOpen', !!P0.startLib);
+
+    return {
+      accent: accent,
+      yes: true,
+      v: v,
+      nav: nav,
+      toastOn: !!s.toast,
+      toast: s.toast || '',
+      hideToast: function () { set({ toast: null }); },
+
+      kpi: {
+        projects: nPub + ' / ' + projects.length,
+        drafts: projects.length - nPub,
+        posts: '' + nPosts,
+        postsDraft: posts.length - nPosts,
+        sections: nOn + ' / ' + sections.length,
+        pct: Math.round((nDone / baseChecks.length) * 100) + '%',
+        doneCount: nDone + ' / ' + baseChecks.length
+      },
+      checklist: checklist,
+
+      goSections: function () { set({ view: 'sections', libOpen: true }); },
+      goProfile: function () { set({ view: 'profile' }); },
+      newProject: function () { set({ view: 'projects', editing: 'new', el: 'fr' }); },
+      newPost: function () { set({ view: 'blog', writing: true }); },
+      saveProfile: function () { set({ toast: 'Profil mis à jour sur le site' }); },
+
+      projects: projectRows,
+      editing: !!editing,
+      editTitle: editing === 'new' ? 'Nouveau projet' : 'Modifier : ' + (editRow ? editRow.t : ''),
+      editPlaceholder: editRow ? editRow.t : (el === 'fr' ? 'Nom du projet' : 'Project name'),
+      elLabel: el.toUpperCase(),
+      elFrStr: el === 'fr' ? 'true' : 'false', elEnStr: el === 'en' ? 'true' : 'false',
+      elFrBg: el === 'fr' ? accent : 'transparent', elFrFg: el === 'fr' ? '#15181E' : '#B6BDC8',
+      elEnBg: el === 'en' ? accent : 'transparent', elEnFg: el === 'en' ? '#15181E' : '#B6BDC8',
+      setElFr: function () { set({ el: 'fr' }); },
+      setElEn: function () { set({ el: 'en' }); },
+      cancelEdit: function () { set({ editing: null }); },
+      saveDraft: function () { saveProject(false, 'Projet enregistré en brouillon'); },
+      publishProject: function () { saveProject(true, 'Projet publié sur le site'); },
+
+      expList: [
+        { title: 'Développeur Full Stack · FlyFret', date: 'févr. 2025 → mars 2026' },
+        { title: '[Stage, freelance ou projet associatif]', date: '[20XX]' }
+      ],
+      eduList: [
+        { title: 'Licence professionnelle · ESATIC', date: '2021 → 2024' },
+        { title: '[Certification en ligne]', date: '[20XX]' },
+        { title: 'Baccalauréat [série]', date: '[20XX]' }
+      ],
+      addExp: function () { set({ toast: 'Nouvelle expérience ajoutée au carrousel' }); },
+      addEdu: function () { set({ toast: 'Nouvelle formation ajoutée au carrousel' }); },
+
+      sections: sectionRows,
+      library: libRows,
+      libOpen: libOpen,
+      libStr: libOpen ? 'true' : 'false',
+      toggleLibrary: function () { set({ libOpen: !libOpen }); },
+
+      posts: postRows,
+      writing: !!pick('writing', !!P0.startWriting),
+      cancelPost: function () { set({ writing: false }); },
+      draftPost: function () { addPost(false); },
+      publishPost: function () { addPost(true); }
+    };
+  }
+}
+</script>
+</body>
+</html>

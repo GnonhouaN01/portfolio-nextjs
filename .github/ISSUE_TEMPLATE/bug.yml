@@ -1,0 +1,28 @@
+name: Bug
+description: Un comportement incorrect
+labels: ["type: bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: Ce qui se passe
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Ce qui devrait se passer
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Étapes pour reproduire
+      value: |
+        1.
+        2.
+  - type: input
+    id: where
+    attributes:
+      label: Page et appareil
+      placeholder: /fr · iPhone · Safari

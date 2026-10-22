@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+# Refuse les messages qui ne respectent pas Conventional Commits ou qui contiennent une attribution IA.
+if grep -Eiq '(co-authored-by:.*(claude|anthropic))|generated with \[?claude|claude\.ai/code' "$1"; then
+  echo "✖ Message de commit refusé : attribution IA détectée. Retirez la ligne et recommencez."
+  exit 1
+fi
+npx --no -- commitlint --edit "$1"

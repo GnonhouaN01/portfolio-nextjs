@@ -1,0 +1,54 @@
+name: PR hygiene
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  pull-requests: read
+  contents: read
+
+jobs:
+  title:
+    name: Titre au format Conventional Commits
+    runs-on: ubuntu-latest
+    steps:
+      - uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          types: |
+            feat
+            fix
+            chore
+            docs
+            refactor
+            test
+            style
+            perf
+            ci
+
+  no-ai-attribution:
+    name: Aucune attribution IA
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Vérifier les commits et la description de la PR
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          PATTERN='(co-authored-by:.*(claude|anthropic|noreply@anthropic))|generated with \[?claude|claude\.ai/code'
+          if git log --format=%B "$BASE..$HEAD" | grep -Eiq "$PATTERN"; then
+            echo "::error::Un commit contient une attribution IA. Corrigez le message (git commit --amend ou rebase) avant de merger."
+            git log --format='%h %s%n%b' "$BASE..$HEAD" | grep -Ei -B2 "$PATTERN" || true
+            exit 1
+          fi
+          if printf '%s' "$PR_BODY" | grep -Eiq "$PATTERN"; then
+            echo "::error::La description de la PR contient une attribution IA."
+            exit 1
+          fi
+          echo "OK : aucune attribution IA."

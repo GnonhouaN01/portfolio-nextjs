@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+# `<NO/>` Gnonhoua N'golo Ouattara — Portfolio
 
-First, run the development server:
+Portfolio bilingue (FR/EN) de développeur Full Stack Web & Mobile, avec un dashboard pour gérer
+projets, parcours, sections et articles sans redéployer.
+
+[![CI](https://github.com/VOTRE_PSEUDO_GITHUB/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/VOTRE_PSEUDO_GITHUB/portfolio/actions/workflows/ci.yml)
+![Next.js](https://img.shields.io/badge/Next.js-App_Router-000?logo=nextdotjs)
+![Supabase](https://img.shields.io/badge/Supabase-Postgres_·_Auth_·_Storage-3ECF8E?logo=supabase&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)
+
+[Site en ligne](https://VOTRE_DOMAINE) · [Use cases](docs/use-cases.md) · [Architecture](docs/architecture.md)
+
+</div>
+
+## Fonctionnalités
+
+**Site public**
+- Projets filtrables par catégorie, carrousel, pop-up de détail partageable (`?projet=slug`)
+- Expérience et formation présentées comme un `git log`, en carrousel
+- Roadmap, compétences, blog et actualités, contact direct (e-mail, LinkedIn, WhatsApp)
+- Français / anglais, responsive, accessible au clavier
+
+**Dashboard**
+- Profil et contacts, projets (brouillon/publication, captures), parcours
+- Sections du site : afficher, masquer, réordonner, ajouter
+- Rédaction d'articles en Markdown, FR/EN
+
+## Stack
+Next.js (App Router) · TypeScript · Tailwind CSS · next-intl · Supabase (Postgres + RLS, Auth, Storage) ·
+Zod · Vitest · Playwright · GitHub Actions · Vercel
+
+## Démarrer
 
 ```bash
+git clone https://github.com/VOTRE_PSEUDO_GITHUB/portfolio.git
+cd portfolio
+cp .env.example .env.local      # renseigner les clés Supabase
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Base de données : `npx supabase link --project-ref <ref>` puis `npx supabase db push`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
+| Commande | Rôle |
+| --- | --- |
+| `npm run dev` | serveur de développement |
+| `npm run lint` / `typecheck` | qualité |
+| `npm run test` / `test:e2e` | tests unitaires / bout en bout |
+| `npm run build` | build de production |
+| `npm run db:types` | régénère les types Supabase |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Structure
+Voir [docs/architecture.md](docs/architecture.md).
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Licence
+[MIT](LICENSE)

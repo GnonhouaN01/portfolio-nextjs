@@ -1,0 +1,39 @@
+name: Use case
+description: Une fonctionnalité décrite du point de vue de l'utilisateur
+labels: ["type: feature"]
+body:
+  - type: input
+    id: uc
+    attributes:
+      label: Identifiant
+      placeholder: UC-V8
+    validations:
+      required: true
+  - type: dropdown
+    id: actor
+    attributes:
+      label: Acteur
+      options: [Visiteur, Admin]
+    validations:
+      required: true
+  - type: textarea
+    id: scenario
+    attributes:
+      label: Scénario
+      placeholder: En tant que… je veux… afin de…
+    validations:
+      required: true
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Critères d'acceptation
+      value: |
+        - [ ]
+        - [ ]
+    validations:
+      required: true
+  - type: input
+    id: screen
+    attributes:
+      label: Écran de maquette
+      placeholder: docs/design/screens/site-projets.png

@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Portfolio N'golo Ouattara</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div id="top" style="width: 100%; background: #15181E; color: #ECEEF2; font-family: 'Sora', sans-serif; font-size: 16px; line-height: 1.6">
+
+<!-- ============ NAV ============ -->
+<header style="border-bottom: 1px solid #262B34; padding: 0 24px">
+<nav aria-label="Navigation principale" style="max-width: 1160px; margin: 0 auto; min-height: 76px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding: 12px 0; box-sizing: border-box">
+<a href="#top" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #ECEEF2">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 500; padding: 6px 10px; border: 1px solid #343B46; border-radius: 8px; color: {{accent}}">&lt;NO/&gt;</span>
+<span style="font-weight: 600; font-size: 16px; letter-spacing: -0.01em">N'golo Ouattara</span>
+</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 22px">
+<a href="#projets" style="color: #B6BDC8; text-decoration: none; font-size: 15px; padding: 10px 0"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Projets</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Projects</sc-if></a>
+<a href="#parcours" style="color: #B6BDC8; text-decoration: none; font-size: 15px; padding: 10px 0"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Parcours</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Journey</sc-if></a>
+<a href="#competences" style="color: #B6BDC8; text-decoration: none; font-size: 15px; padding: 10px 0"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Compétences</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Skills</sc-if></a>
+<sc-if value="{{showBlog}}" hint-placeholder-val="{{true}}"><a href="#blog" style="color: #B6BDC8; text-decoration: none; font-size: 15px; padding: 10px 0"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Blog</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Blog</sc-if></a></sc-if>
+<a href="#contact" style="color: #B6BDC8; text-decoration: none; font-size: 15px; padding: 10px 0">Contact</a>
+<div role="group" aria-label="Langue / Language" style="display: flex; padding: 3px; border: 1px solid #343B46; border-radius: 999px; background: #1C2027">
+<sc-if value="{{fr}}" hint-placeholder-val="{{true}}">
+<button type="button" aria-pressed="true" onClick="{{setFr}}" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; min-width: 44px; height: 36px; border: none; border-radius: 999px; cursor: pointer; background: {{accent}}; color: #15181E">FR</button>
+<button type="button" aria-pressed="false" onClick="{{setEn}}" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; min-width: 44px; height: 36px; border: none; border-radius: 999px; cursor: pointer; background: transparent; color: #B6BDC8">EN</button>
+</sc-if>
+<sc-if value="{{en}}" hint-placeholder-val="{{false}}">
+<button type="button" aria-pressed="false" onClick="{{setFr}}" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; min-width: 44px; height: 36px; border: none; border-radius: 999px; cursor: pointer; background: transparent; color: #B6BDC8">FR</button>
+<button type="button" aria-pressed="true" onClick="{{setEn}}" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; min-width: 44px; height: 36px; border: none; border-radius: 999px; cursor: pointer; background: {{accent}}; color: #15181E">EN</button>
+</sc-if>
+</div>
+</div>
+</nav>
+</header>
+
+<!-- ============ HERO (code en arrière-plan, côté droit uniquement) ============ -->
+<section style="position: relative; overflow: hidden; padding: 72px 24px 88px; border-bottom: 1px solid #262B34">
+<div aria-hidden="true" style="position: absolute; top: 0; right: 0; width: 58%; height: 100%; overflow: hidden; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 22px; color: rgba(236,238,242,0.05); white-space: pre; padding: 24px; box-sizing: border-box; -webkit-mask-image: linear-gradient(to left, #000 55%, transparent); mask-image: linear-gradient(to left, #000 55%, transparent)">git commit -m "feat: filtre des projets par catégorie"
+GET /api/v1/projects  200 OK  42ms
+SELECT title, stack FROM projects WHERE status = 'live';
+docker compose up -d  ✓ api  ✓ db  ✓ web
+const routes = ["/", "/projets", "/contact"];
+01001110 01001111 01010101 01000001
+async function deploy(env) { await build(); await ship(env); }
+npm run build  →  dist/ 312 kB
+git push origin main
+PATCH /api/v1/users/42  204 No Content
+flutter build apk --release
+if (bug) fix(bug); else ship();
+01110011 01101000 01101001 01110000
+CREATE TABLE projects (id SERIAL PRIMARY KEY, title TEXT);
+git log --oneline | head -n 5
+POST /api/v1/orders  201 Created
+export default function App() { return render(); }
+ssh deploy@server "pm2 restart api"
+while (learning) { practice(); build(); }
+git checkout -b feature/portfolio
+SELECT COUNT(*) FROM commits WHERE author = 'ngolo';
+01000011 01001111 01000100 01000101
+npm test  →  48 passed, 0 failed
+GET /health  200 OK</div>
+
+<div style="position: relative; max-width: 1160px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 56px">
+<div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<div style="display: inline-flex; align-self: flex-start; align-items: center; gap: 10px; padding: 8px 14px; border: 1px solid #2E3E36; background: #17241E; border-radius: 999px; font-size: 14px; color: #B8E7CF">
+<span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: #34D399; display: inline-block"></span>
+<span><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Disponible · CDI, freelance ou remote</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Available · full-time, freelance or remote</sc-if></span>
+</div>
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 15px; color: {{accent}}"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Bonjour, je suis</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Hi, I am</sc-if></div>
+<h1 style="margin: -12px 0 0; font-size: 56px; line-height: 1.08; font-weight: 700; letter-spacing: -0.03em; color: #FFFFFF">Gnonhoua N'golo Ouattara</h1>
+<p style="margin: 0; font-size: 22px; line-height: 1.5; color: #C9CED6; max-width: 560px"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Développeur Full Stack Web &amp; Mobile. Je conçois des applications claires, utiles et pensées pour durer en production.</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Full Stack Web &amp; Mobile Developer. I build clear, useful applications designed to last in production.</sc-if></p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px">
+<a href="#projets" style="display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 10px; background: {{accent}}; color: #15181E; font-weight: 600; font-size: 15px; text-decoration: none"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Voir mes projets</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">See my projects</sc-if> →</a>
+<a href="#contact" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 10px; border: 1px solid #3A414D; color: #ECEEF2; font-weight: 500; font-size: 15px; text-decoration: none"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Me contacter</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Get in touch</sc-if></a>
+<a href="#" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 16px; color: #B6BDC8; font-size: 15px; text-decoration: underline; text-underline-offset: 4px"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Télécharger mon CV</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Download my resume</sc-if></a>
+</div>
+</div>
+
+<div style="flex: 1 1 420px; min-width: 0; border: 1px solid #2D333D; border-radius: 14px; background: #101318; overflow: hidden">
+<div style="display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid #23282F; background: #161A20">
+<span aria-hidden="true" style="width: 11px; height: 11px; border-radius: 50%; background: #F87171; display: inline-block"></span>
+<span aria-hidden="true" style="width: 11px; height: 11px; border-radius: 50%; background: #FBBF24; display: inline-block"></span>
+<span aria-hidden="true" style="width: 11px; height: 11px; border-radius: 50%; background: #34D399; display: inline-block"></span>
+<span style="margin-left: 12px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #A0A8B4">profil.ts</span>
+</div>
+<div style="padding: 20px 18px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 26px; overflow-x: auto">
+<div style="display: flex; gap: 18px"><span aria-hidden="true" style="width: 18px; text-align: right; color: #4E5561">1</span><span style="white-space: pre; color: #7C8592">// profil.ts</span></div>
+<div style="display: flex; gap: 18px"><span aria-hidden="true" style="width: 18px; text-align: right; color: #4E5561">2</span><span style="white-space: pre"><span style="color: #BB9AF7">const</span> <span style="color: #7AA2F7">ngolo</span> <span style="color: #ECEEF2">= {</span></span></div>
+<div style="display: flex; gap: 18px"><span aria-hidden="true" style="width: 18px; text-align: right; color: #4E5561">3</span><span style="white-space: pre; color: #ECEEF2">  role: <span style="color: #9ECE6A">"Full Stack Developer"</span>,</span></div>
+<div style="display: flex; gap: 18px"><span aria-hidden="true" style="width: 18px; text-align: right; color: #4E5561">4</span><span style="white-space: pre; color: #ECEEF2">  focus: [<span style="color: #9ECE6A">"web"</span>, <span style="color: #9ECE6A">"mobile"</span>, <span style="color: #9ECE6A">"api"</span>],</span></div>
+<div style="display: flex; gap: 18px"><span aria-hidden="true" style="width: 18px; text-align: right; color: #4E5561">5</span><span style="white-space: pre; color: #ECEEF2">  base: <span style="color: #9ECE6A">"Abidjan, CI"</span>,</span></div>
+<div style="display: flex; gap: 18px"><span aria-hidden="true" style="width: 18px; text-align: right; color: #4E5561">6</span><span style="white-space: pre; color: #ECEEF2">  remote: <span style="color: #E0AF68">true</span>,</span></div>
+<div style="display: flex; gap: 18px"><span aria-hidden="true" style="width: 18px; text-align: right; color: #4E5561">7</span><span style="white-space: pre; color: #ECEEF2">  openTo: [<span style="color: #9ECE6A">"CDI"</span>, <span style="color: #9ECE6A">"Freelance"</span>],</span></div>
+<div style="display: flex; gap: 18px"><span aria-hidden="true" style="width: 18px; text-align: right; color: #4E5561">8</span><span style="white-space: pre; color: #ECEEF2">  motto: <span style="color: #9ECE6A">"ship clean, ship often"</span>,</span></div>
+<div style="display: flex; gap: 18px"><span aria-hidden="true" style="width: 18px; text-align: right; color: #4E5561">9</span><span style="white-space: pre; color: #ECEEF2">};</span></div>
+<div style="display: flex; gap: 18px"><span aria-hidden="true" style="width: 18px; text-align: right; color: #4E5561">10</span><span style="white-space: pre"> </span></div>
+<div style="display: flex; gap: 18px"><span aria-hidden="true" style="width: 18px; text-align: right; color: #4E5561">11</span><span style="white-space: pre"><span style="color: #BB9AF7">export default</span> <span style="color: #7AA2F7">ngolo</span><span style="color: #ECEEF2">;</span><span aria-hidden="true" style="display: inline-block; width: 9px; height: 18px; margin-left: 4px; vertical-align: -3px; background: {{accent}}"></span></span></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px 18px; padding: 10px 16px; border-top: 1px solid #23282F; background: #161A20; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #A0A8B4">
+<span>⎇ main</span>
+<span style="color: #6EE7B7">✓ build passing</span>
+<span>TypeScript</span>
+<span>UTF-8</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ CHIFFRES ============ -->
+<section aria-label="En bref" style="padding: 0 24px; border-bottom: 1px solid #262B34">
+<div style="max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))">
+<div style="padding: 32px 24px 32px 0; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 32px; font-weight: 600; color: #FFFFFF; letter-spacing: -0.02em">14 <sc-if value="{{fr}}" hint-placeholder-val="{{true}}">mois</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">months</sc-if></span>
+<span style="font-size: 14px; color: #A0A8B4"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">d'expérience en entreprise</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">of industry experience</sc-if></span>
+</div>
+<div style="padding: 32px 24px 32px 0; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 32px; font-weight: 600; color: #FFFFFF; letter-spacing: -0.02em">[X]</span>
+<span style="font-size: 14px; color: #A0A8B4"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">projets réalisés</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">projects shipped</sc-if></span>
+</div>
+<div style="padding: 32px 24px 32px 0; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 32px; font-weight: 600; color: #FFFFFF; letter-spacing: -0.02em">Web + Mobile</span>
+<span style="font-size: 14px; color: #A0A8B4"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">de la maquette au déploiement</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">from mockup to deployment</sc-if></span>
+</div>
+<div style="padding: 32px 24px 32px 0; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 32px; font-weight: 600; color: #FFFFFF; letter-spacing: -0.02em">ESATIC</span>
+<span style="font-size: 14px; color: #A0A8B4"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Licence professionnelle · 2024</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Professional Bachelor · 2024</sc-if></span>
+</div>
+</div>
+</section>
+
+<!-- ============ 01 A PROPOS ============ -->
+<section id="apropos" style="padding: 96px 24px">
+<div style="max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 56px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.08em; color: {{accent}}">01 — <sc-if value="{{fr}}" hint-placeholder-val="{{true}}">À PROPOS</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">ABOUT</sc-if></div>
+<h2 style="margin: 0; font-size: 38px; line-height: 1.18; font-weight: 600; letter-spacing: -0.02em; color: #FFFFFF"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">J'aime quand une application marche vraiment — pour ceux qui l'utilisent.</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">I like it when an app truly works — for the people using it.</sc-if></h2>
+<p style="margin: 0; font-size: 17px; color: #C2C8D1"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Diplômé de l'ESATIC, j'ai passé 14 mois chez FlyFret à développer le site officiel et une plateforme interne de l'entreprise, de la conception à la mise en ligne.</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">An ESATIC graduate, I spent 14 months at FlyFret building the company website and an internal platform, from design to launch.</sc-if></p>
+<p style="margin: 0; font-size: 17px; color: #C2C8D1"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Ce qui m'intéresse : transformer un besoin métier en un produit simple, rapide et facile à maintenir.</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">What drives me: turning a business need into a product that is simple, fast and easy to maintain.</sc-if></p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div style="aspect-ratio: 4 / 3; border-radius: 14px; border: 1px dashed #3A414D; background: #1C2027; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #A0A8B4">[<sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Votre photo</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Your photo</sc-if>]</div>
+<div style="border: 1px solid #2D333D; border-radius: 12px; background: #101318; padding: 18px 20px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.9; color: #C2C8D1">
+<div style="color: #7C8592">$ now --status</div>
+<div><span style="color: {{accent}}">›</span> <sc-if value="{{fr}}" hint-placeholder-val="{{true}}">j'apprends :</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">learning:</sc-if> <span style="color: #9ECE6A">[technologie]</span></div>
+<div><span style="color: {{accent}}">›</span> <sc-if value="{{fr}}" hint-placeholder-val="{{true}}">je construis :</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">building:</sc-if> <span style="color: #9ECE6A">[projet perso]</span></div>
+<div><span style="color: {{accent}}">›</span> <sc-if value="{{fr}}" hint-placeholder-val="{{true}}">langues :</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">languages:</sc-if> <span style="color: #9ECE6A"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Français, Anglais [niveau]</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">French, English [level]</sc-if></span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ 02 PROJETS (filtres + carrousel + détail) ============ -->
+<section id="projets" style="padding: 96px 24px; background: #191D24; border-top: 1px solid #262B34; border-bottom: 1px solid #262B34">
+<div style="max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px">
+
+<sc-if value="{{showGrid}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.08em; color: {{accent}}">02 — <sc-if value="{{fr}}" hint-placeholder-val="{{true}}">PROJETS</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">PROJECTS</sc-if></div>
+<h2 style="margin: 0; font-size: 38px; line-height: 1.18; font-weight: 600; letter-spacing: -0.02em; color: #FFFFFF"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Ce que j'ai construit</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">What I have built</sc-if></h2>
+</div>
+<div role="group" aria-label="Filtrer par catégorie" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{filters}}" as="f" hint-placeholder-count="5">
+<sc-if value="{{f.active}}" hint-placeholder-val="{{false}}">
+<button type="button" aria-pressed="true" onClick="{{f.pick}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid {{accent}}; background: {{accent}}; color: #15181E; font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer">{{f.label}} <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; opacity: 0.75">{{f.count}}</span></button>
+</sc-if>
+<sc-if value="{{f.inactive}}" hint-placeholder-val="{{true}}">
+<button type="button" aria-pressed="false" onClick="{{f.pick}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #343B46; background: #1C2027; color: #C9CED6; font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer">{{f.label}} <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8B94A1">{{f.count}}</span></button>
+</sc-if>
+</sc-for>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px">
+<sc-for list="{{items}}" as="p" hint-placeholder-count="3">
+<button type="button" onClick="{{p.open}}" aria-label="{{p.aria}}" style="display: flex; flex-direction: column; text-align: left; width: 100%; padding: 0; margin: 0; font-family: 'Sora', sans-serif; color: #ECEEF2; border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; overflow: hidden; cursor: pointer">
+<span aria-hidden="true" style="display: flex; flex-direction: column; gap: 10px; width: 100%; height: 168px; background: #101318; border-bottom: 1px solid #262B34; padding: 16px 18px; box-sizing: border-box">
+<span style="display: flex; gap: 6px; margin-bottom: 6px">
+<span style="width: 9px; height: 9px; border-radius: 50%; background: #3A414D; display: inline-block"></span>
+<span style="width: 9px; height: 9px; border-radius: 50%; background: #3A414D; display: inline-block"></span>
+<span style="width: 9px; height: 9px; border-radius: 50%; background: #3A414D; display: inline-block"></span>
+</span>
+<sc-for list="{{p.lines}}" as="l" hint-placeholder-count="6">
+<span style="display: block; height: 8px; border-radius: 4px; width: {{l.w}}; margin-left: {{l.ind}}; background: {{l.c}}; opacity: 0.8"></span>
+</sc-for>
+</span>
+<span style="display: flex; flex-direction: column; gap: 12px; padding: 22px 22px 24px; box-sizing: border-box; width: 100%; flex-grow: 1">
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 12px">
+<span style="color: {{accent}}; letter-spacing: 0.06em">{{p.tag}}</span>
+<span style="color: #8B94A1">{{p.year}}</span>
+</span>
+<span style="display: block; font-size: 20px; line-height: 1.3; font-weight: 600; color: #FFFFFF">{{p.title}}</span>
+<sc-if value="{{p.pro}}" hint-placeholder-val="{{false}}">
+<span style="align-self: flex-start; font-size: 12px; padding: 3px 10px; border-radius: 999px; background: #17241E; color: #B8E7CF; border: 1px solid #2E3E36">{{p.proLabel}}</span>
+</sc-if>
+<span style="display: block; font-size: 15px; line-height: 1.6; color: #B6BDC8; flex-grow: 1">{{p.desc}}</span>
+<span style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{p.stack}}" as="s" hint-placeholder-count="3">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 4px 9px; border-radius: 6px; background: #252A33; color: #C9CED6">{{s.label}}</span>
+</sc-for>
+</span>
+<span style="display: inline-flex; align-items: center; gap: 6px; padding-top: 6px; font-size: 14px; font-weight: 600; color: {{accent}}">{{p.more}} →</span>
+</span>
+</button>
+</sc-for>
+</div>
+
+<sc-if value="{{showNav}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #A0A8B4">{{counter}}</span>
+<div style="display: flex; align-items: center; gap: 6px">
+<sc-for list="{{dots}}" as="d" hint-placeholder-count="3">
+<button type="button" aria-label="{{d.label}}" onClick="{{d.go}}" style="width: 32px; height: 44px; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0">
+<sc-if value="{{d.active}}" hint-placeholder-val="{{false}}"><span aria-hidden="true" style="width: 24px; height: 6px; border-radius: 3px; background: {{accent}}; display: block"></span></sc-if>
+<sc-if value="{{d.inactive}}" hint-placeholder-val="{{true}}"><span aria-hidden="true" style="width: 8px; height: 6px; border-radius: 3px; background: #4A525E; display: block"></span></sc-if>
+</button>
+</sc-for>
+</div>
+<div style="display: flex; gap: 10px">
+<button type="button" aria-label="Précédent / Previous" onClick="{{prev}}" style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid #3A414D; background: #1C2027; color: #ECEEF2; cursor: pointer; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+</button>
+<button type="button" aria-label="Suivant / Next" onClick="{{next}}" style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid #3A414D; background: #1C2027; color: #ECEEF2; cursor: pointer; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</button>
+</div>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<!-- Détail d'un projet : pop-up -->
+<sc-if value="{{showDetail}}" hint-placeholder-val="{{false}}">
+<div role="dialog" aria-modal="true" aria-label="{{detail.title}}" style="position: fixed; inset: 0; z-index: 100; background: rgba(8,10,13,0.8); display: flex; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box">
+<div style="width: 100%; max-width: 980px; max-height: calc(100vh - 48px); overflow-y: auto; background: #1C2027; border: 1px solid #3A414D; border-radius: 18px; box-shadow: 0 32px 90px rgba(0,0,0,0.55); display: flex; flex-direction: column">
+<div style="position: sticky; top: 0; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; padding: 10px 12px 10px 24px; background: #1C2027; border-bottom: 1px solid #2D333D">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.06em; color: {{accent}}">{{detail.tag}} · {{detail.year}}</span>
+<div style="display: flex; gap: 8px">
+<button type="button" onClick="{{prevProject}}" style="min-height: 44px; padding: 0 14px; border-radius: 10px; border: none; background: transparent; color: #B6BDC8; font-family: 'Sora', sans-serif; font-size: 14px; cursor: pointer">← <sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Précédent</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Previous</sc-if></button>
+<button type="button" onClick="{{nextProject}}" style="min-height: 44px; padding: 0 14px; border-radius: 10px; border: none; background: transparent; color: #B6BDC8; font-family: 'Sora', sans-serif; font-size: 14px; cursor: pointer"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Suivant</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Next</sc-if> →</button>
+<button type="button" onClick="{{closeDetail}}" aria-label="Fermer / Close" style="width: 44px; height: 44px; margin-left: 4px; border-radius: 10px; border: 1px solid #3A414D; background: #252A33; color: #ECEEF2; cursor: pointer; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+</button>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; padding: 24px; align-items: start">
+<!-- Galerie (carrousel de captures) -->
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="position: relative; aspect-ratio: 16 / 10; border-radius: 14px; border: 1px solid #2D333D; background: #101318; overflow: hidden">
+<div aria-hidden="true" style="position: absolute; inset: 0; padding: 22px 26px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; gap: 6px; margin-bottom: 8px">
+<span style="width: 10px; height: 10px; border-radius: 50%; background: #3A414D; display: inline-block"></span>
+<span style="width: 10px; height: 10px; border-radius: 50%; background: #3A414D; display: inline-block"></span>
+<span style="width: 10px; height: 10px; border-radius: 50%; background: #3A414D; display: inline-block"></span>
+</div>
+<sc-for list="{{detail.lines}}" as="l" hint-placeholder-count="6">
+<div style="height: 10px; border-radius: 5px; width: {{l.w}}; margin-left: {{l.ind}}; background: {{l.c}}; opacity: 0.55"></div>
+</sc-for>
+</div>
+<div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #ECEEF2; background: rgba(16,19,24,0.85); border: 1px solid #343B46; padding: 8px 14px; border-radius: 8px">{{detail.shotLabel}}</span>
+</div>
+<button type="button" aria-label="Capture précédente / Previous screenshot" onClick="{{prevShot}}" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: 1px solid #3A414D; background: rgba(28,32,39,0.9); color: #ECEEF2; cursor: pointer; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+</button>
+<button type="button" aria-label="Capture suivante / Next screenshot" onClick="{{nextShot}}" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: 1px solid #3A414D; background: rgba(28,32,39,0.9); color: #ECEEF2; cursor: pointer; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</button>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{shots}}" as="sh" hint-placeholder-count="3">
+<button type="button" aria-label="{{sh.label}}" onClick="{{sh.go}}" style="height: 64px; border-radius: 10px; cursor: pointer; background: #101318; border: 1px solid #2D333D; padding: 0; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #A0A8B4">
+<sc-if value="{{sh.active}}" hint-placeholder-val="{{false}}"><span style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; border-radius: 9px; box-shadow: inset 0 0 0 2px {{accent}}; color: #FFFFFF">{{sh.n}}</span></sc-if>
+<sc-if value="{{sh.inactive}}" hint-placeholder-val="{{true}}"><span>{{sh.n}}</span></sc-if>
+</button>
+</sc-for>
+</div>
+</div>
+
+<!-- Infos -->
+<div style="display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600; letter-spacing: -0.02em; color: #FFFFFF">{{detail.title}}</h3>
+<sc-if value="{{detail.pro}}" hint-placeholder-val="{{false}}"><span style="align-self: flex-start; font-size: 12px; padding: 3px 10px; border-radius: 999px; background: #17241E; color: #B8E7CF; border: 1px solid #2E3E36">{{detail.proLabel}}</span></sc-if>
+<p style="margin: 0; font-size: 17px; color: #C2C8D1">{{detail.desc}}</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8B94A1"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">MON RÔLE</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">MY ROLE</sc-if></span>
+<span style="font-size: 15px; color: #DADEE4">{{detail.role}}</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8B94A1"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">FONCTIONNALITÉS CLÉS</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">KEY FEATURES</sc-if></span>
+<ul style="margin: 0; padding-left: 18px; font-size: 15px; color: #DADEE4; display: flex; flex-direction: column; gap: 4px">
+<sc-for list="{{detail.feat}}" as="ft" hint-placeholder-count="3"><li>{{ft.t}}</li></sc-for>
+</ul>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8B94A1"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">RÉSULTAT</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">OUTCOME</sc-if></span>
+<span style="font-size: 15px; color: #DADEE4">{{detail.res}}</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{detail.stack}}" as="s" hint-placeholder-count="3">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 5px 10px; border-radius: 6px; background: #252A33; color: #C9CED6">{{s.label}}</span>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 4px">
+<a href="#" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border-radius: 10px; background: {{accent}}; color: #15181E; font-weight: 600; font-size: 15px; text-decoration: none">{{detail.demoLabel}} ↗</a>
+<a href="#" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border-radius: 10px; border: 1px solid #3A414D; color: #ECEEF2; font-weight: 500; font-size: 15px; text-decoration: none">Code source ↗</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+
+</div>
+</section>
+
+<!-- ============ 03 EXPERIENCE & PARCOURS (carrousels git log) ============ -->
+<section id="parcours" style="padding: 96px 24px">
+<div style="max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.08em; color: {{accent}}">03 — <sc-if value="{{fr}}" hint-placeholder-val="{{true}}">EXPÉRIENCE &amp; PARCOURS</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">EXPERIENCE &amp; EDUCATION</sc-if></div>
+<h2 style="margin: 0; font-size: 38px; line-height: 1.18; font-weight: 600; letter-spacing: -0.02em; color: #FFFFFF"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">L'historique des commits</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">The commit history</sc-if></h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px">
+
+<!-- Carte Expérience -->
+<div style="border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 28px; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #A0A8B4">$ git log --experience</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #A0A8B4">{{expCounter}}</span>
+</div>
+<div style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 10px; border: 1px dashed #3A414D; font-size: 14px; color: #C9CED6">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: {{accent}}">HEAD →</span>
+<span><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Prochaine étape : rejoindre votre équipe ?</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Next step: joining your team?</sc-if></span>
+</div>
+<div style="display: flex; gap: 16px; min-height: 210px">
+<div aria-hidden="true" style="display: flex; flex-direction: column; align-items: center"><span style="width: 14px; height: 14px; border-radius: 50%; background: {{accent}}; display: block; margin-top: 5px"></span><span style="width: 2px; flex-grow: 1; background: #343B46; margin-top: 6px"></span></div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8B94A1">{{exp.hash}} · {{exp.date}}</span>
+<span style="font-size: 19px; font-weight: 600; color: #FFFFFF">{{exp.title}}</span>
+<span style="font-size: 14px; color: #A0A8B4">{{exp.sub}}</span>
+<ul style="margin: 6px 0 0; padding-left: 18px; font-size: 15px; color: #C2C8D1; display: flex; flex-direction: column; gap: 4px">
+<sc-for list="{{exp.bullets}}" as="b" hint-placeholder-count="3"><li>{{b.t}}</li></sc-for>
+</ul>
+</div>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid #2A303A; padding-top: 14px">
+<div style="display: flex; align-items: center; gap: 2px">
+<sc-for list="{{expDots}}" as="d" hint-placeholder-count="2">
+<button type="button" aria-label="{{d.label}}" onClick="{{d.go}}" style="width: 28px; height: 44px; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0">
+<sc-if value="{{d.active}}" hint-placeholder-val="{{false}}"><span aria-hidden="true" style="width: 20px; height: 6px; border-radius: 3px; background: {{accent}}; display: block"></span></sc-if>
+<sc-if value="{{d.inactive}}" hint-placeholder-val="{{true}}"><span aria-hidden="true" style="width: 7px; height: 6px; border-radius: 3px; background: #4A525E; display: block"></span></sc-if>
+</button>
+</sc-for>
+</div>
+<div style="display: flex; gap: 8px">
+<button type="button" aria-label="Expérience précédente / Previous" onClick="{{expPrev}}" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #3A414D; background: #15181E; color: #ECEEF2; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+<button type="button" aria-label="Expérience suivante / Next" onClick="{{expNext}}" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #3A414D; background: #15181E; color: #ECEEF2; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+</div>
+</div>
+</div>
+
+<!-- Carte Parcours -->
+<div style="border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 28px; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #A0A8B4">$ git log --education</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #A0A8B4">{{eduCounter}}</span>
+</div>
+<div style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 10px; border: 1px dashed #3A414D; font-size: 14px; color: #C9CED6">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #7AA2F7">branch →</span>
+<span><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Formation continue : toujours en apprentissage</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Continuous learning: always learning</sc-if></span>
+</div>
+<div style="display: flex; gap: 16px; min-height: 210px">
+<div aria-hidden="true" style="display: flex; flex-direction: column; align-items: center"><span style="width: 14px; height: 14px; border-radius: 50%; background: #7AA2F7; display: block; margin-top: 5px"></span><span style="width: 2px; flex-grow: 1; background: #343B46; margin-top: 6px"></span></div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8B94A1">{{edu.hash}} · {{edu.date}}</span>
+<span style="font-size: 19px; font-weight: 600; color: #FFFFFF">{{edu.title}}</span>
+<span style="font-size: 14px; color: #A0A8B4">{{edu.sub}}</span>
+<ul style="margin: 6px 0 0; padding-left: 18px; font-size: 15px; color: #C2C8D1; display: flex; flex-direction: column; gap: 4px">
+<sc-for list="{{edu.bullets}}" as="b" hint-placeholder-count="2"><li>{{b.t}}</li></sc-for>
+</ul>
+</div>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid #2A303A; padding-top: 14px">
+<div style="display: flex; align-items: center; gap: 2px">
+<sc-for list="{{eduDots}}" as="d" hint-placeholder-count="3">
+<button type="button" aria-label="{{d.label}}" onClick="{{d.go}}" style="width: 28px; height: 44px; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0">
+<sc-if value="{{d.active}}" hint-placeholder-val="{{false}}"><span aria-hidden="true" style="width: 20px; height: 6px; border-radius: 3px; background: #7AA2F7; display: block"></span></sc-if>
+<sc-if value="{{d.inactive}}" hint-placeholder-val="{{true}}"><span aria-hidden="true" style="width: 7px; height: 6px; border-radius: 3px; background: #4A525E; display: block"></span></sc-if>
+</button>
+</sc-for>
+</div>
+<div style="display: flex; gap: 8px">
+<button type="button" aria-label="Formation précédente / Previous" onClick="{{eduPrev}}" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #3A414D; background: #15181E; color: #ECEEF2; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+<button type="button" aria-label="Formation suivante / Next" onClick="{{eduNext}}" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #3A414D; background: #15181E; color: #ECEEF2; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ============ 04 ORIENTATION PROFESSIONNELLE ============ -->
+<section id="orientation" style="padding: 96px 24px; background: #191D24; border-top: 1px solid #262B34; border-bottom: 1px solid #262B34">
+<div style="max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 720px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.08em; color: {{accent}}">04 — <sc-if value="{{fr}}" hint-placeholder-val="{{true}}">ORIENTATION PROFESSIONNELLE</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">CAREER DIRECTION</sc-if></div>
+<h2 style="margin: 0; font-size: 38px; line-height: 1.18; font-weight: 600; letter-spacing: -0.02em; color: #FFFFFF"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">La roadmap</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">The roadmap</sc-if></h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
+<div style="border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9ECE6A">v1.0 · <sc-if value="{{fr}}" hint-placeholder-val="{{true}}">maintenant</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">now</sc-if></span>
+<h3 style="margin: 0; font-size: 20px; font-weight: 600; color: #FFFFFF"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Intégrer une équipe produit</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Join a product team</sc-if></h3>
+<p style="margin: 0; font-size: 15px; color: #B6BDC8"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Contribuer comme développeur Full Stack sur un produit utilisé au quotidien, et progresser au contact de développeurs expérimentés.</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Contribute as a Full Stack developer to a product people use daily, and grow alongside experienced engineers.</sc-if></p>
+</div>
+<div style="border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #7AA2F7">v2.0 · <sc-if value="{{fr}}" hint-placeholder-val="{{true}}">2 à 3 ans</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">2–3 years</sc-if></span>
+<h3 style="margin: 0; font-size: 20px; font-weight: 600; color: #FFFFFF"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Me spécialiser</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Specialise</sc-if></h3>
+<p style="margin: 0; font-size: 15px; color: #B6BDC8"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Approfondir [architecture back-end / mobile / cloud] pour porter des décisions techniques sur des projets plus larges.</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Go deeper into [back-end architecture / mobile / cloud] to own technical decisions on larger projects.</sc-if></p>
+</div>
+<div style="border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #BB9AF7">README.md</span>
+<h3 style="margin: 0; font-size: 20px; font-weight: 600; color: #FFFFFF"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Ce qui me guide</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">What guides me</sc-if></h3>
+<ul style="margin: 0; padding-left: 18px; font-size: 15px; color: #B6BDC8; display: flex; flex-direction: column; gap: 4px">
+<li><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">L'utilisateur d'abord</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Users first</sc-if></li>
+<li><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Un code lisible par les autres</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Code others can read</sc-if></li>
+<li><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Apprendre en livrant</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Learn by shipping</sc-if></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ 05 COMPETENCES ============ -->
+<section id="competences" style="padding: 96px 24px">
+<div style="max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.08em; color: {{accent}}">05 — <sc-if value="{{fr}}" hint-placeholder-val="{{true}}">COMPÉTENCES</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">SKILLS</sc-if></div>
+<h2 style="margin: 0; font-size: 38px; line-height: 1.18; font-weight: 600; letter-spacing: -0.02em; color: #FFFFFF"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Ma boîte à outils</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">My toolbox</sc-if></h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px">
+<div style="border: 1px solid #2D333D; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #ECEEF2">/frontend</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 6px 10px; border-radius: 8px; background: #1C2027; border: 1px solid #2D333D; color: #C9CED6">[ex. React]</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 6px 10px; border-radius: 8px; background: #1C2027; border: 1px solid #2D333D; color: #C9CED6">[TypeScript]</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 6px 10px; border-radius: 8px; background: #1C2027; border: 1px solid #2D333D; color: #C9CED6">[CSS / Tailwind]</span>
+</div>
+</div>
+<div style="border: 1px solid #2D333D; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #ECEEF2">/backend</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 6px 10px; border-radius: 8px; background: #1C2027; border: 1px solid #2D333D; color: #C9CED6">[ex. Node.js]</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 6px 10px; border-radius: 8px; background: #1C2027; border: 1px solid #2D333D; color: #C9CED6">[API REST]</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 6px 10px; border-radius: 8px; background: #1C2027; border: 1px solid #2D333D; color: #C9CED6">[SQL / NoSQL]</span>
+</div>
+</div>
+<div style="border: 1px solid #2D333D; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #ECEEF2">/mobile</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 6px 10px; border-radius: 8px; background: #1C2027; border: 1px solid #2D333D; color: #C9CED6">[ex. Flutter]</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 6px 10px; border-radius: 8px; background: #1C2027; border: 1px solid #2D333D; color: #C9CED6">[React Native]</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 6px 10px; border-radius: 8px; background: #1C2027; border: 1px solid #2D333D; color: #C9CED6">[Firebase]</span>
+</div>
+</div>
+<div style="border: 1px solid #2D333D; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #ECEEF2">/<sc-if value="{{fr}}" hint-placeholder-val="{{true}}">outils</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">tools</sc-if></span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 6px 10px; border-radius: 8px; background: #1C2027; border: 1px solid #2D333D; color: #C9CED6">[Git / GitHub]</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 6px 10px; border-radius: 8px; background: #1C2027; border: 1px solid #2D333D; color: #C9CED6">[Docker]</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 6px 10px; border-radius: 8px; background: #1C2027; border: 1px solid #2D333D; color: #C9CED6">[Figma]</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 6px 10px; border-radius: 8px; background: #1C2027; border: 1px solid #2D333D; color: #C9CED6">[Agile / Scrum]</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ 06 ACTUALITES & BLOG (section ajoutée depuis le dashboard) ============ -->
+<sc-if value="{{showBlog}}" hint-placeholder-val="{{true}}">
+<section id="blog" style="padding: 96px 24px; background: #191D24; border-top: 1px solid #262B34">
+<div style="max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.08em; color: {{accent}}">06 — <sc-if value="{{fr}}" hint-placeholder-val="{{true}}">ACTUALITÉS &amp; BLOG</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">NEWS &amp; BLOG</sc-if></div>
+<h2 style="margin: 0; font-size: 38px; line-height: 1.18; font-weight: 600; letter-spacing: -0.02em; color: #FFFFFF"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Le changelog</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">The changelog</sc-if></h2>
+</div>
+<a href="#" style="color: #ECEEF2; font-size: 15px; font-weight: 500; text-decoration: underline; text-underline-offset: 4px; padding: 10px 0"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Tous les articles</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">All posts</sc-if> →</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px">
+<a href="#" style="text-decoration: none; color: inherit; border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+<span style="display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 12px"><span style="color: #9ECE6A"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">ARTICLE</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">ARTICLE</sc-if></span><span style="color: #8B94A1">[JJ/MM/2026]</span></span>
+<span style="font-size: 19px; font-weight: 600; line-height: 1.35; color: #FFFFFF"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">[Ce que j'ai appris en développant une plateforme interne]</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">[What I learned building an internal platform]</sc-if></span>
+<span style="font-size: 15px; color: #B6BDC8"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">[Résumé de l'article en deux lignes.]</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">[Two-line summary of the post.]</sc-if></span>
+<span style="font-size: 14px; font-weight: 600; color: {{accent}}"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Lire</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Read</sc-if> →</span>
+</a>
+<a href="#" style="text-decoration: none; color: inherit; border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+<span style="display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 12px"><span style="color: #7AA2F7"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">ACTUALITÉ</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">NEWS</sc-if></span><span style="color: #8B94A1">[JJ/MM/2026]</span></span>
+<span style="font-size: 19px; font-weight: 600; line-height: 1.35; color: #FFFFFF"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">[Nouvelle certification obtenue]</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">[New certification earned]</sc-if></span>
+<span style="font-size: 15px; color: #B6BDC8"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">[Une annonce courte : événement, nouveau projet, distinction.]</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">[A short announcement: event, new project, award.]</sc-if></span>
+<span style="font-size: 14px; font-weight: 600; color: {{accent}}"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Lire</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Read</sc-if> →</span>
+</a>
+<a href="#" style="text-decoration: none; color: inherit; border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+<span style="display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 12px"><span style="color: #9ECE6A">TUTORIEL</span><span style="color: #8B94A1">[JJ/MM/2026]</span></span>
+<span style="font-size: 19px; font-weight: 600; line-height: 1.35; color: #FFFFFF"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">[Déployer une API en production : ma checklist]</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">[Shipping an API to production: my checklist]</sc-if></span>
+<span style="font-size: 15px; color: #B6BDC8"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">[Résumé de l'article en deux lignes.]</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">[Two-line summary of the post.]</sc-if></span>
+<span style="font-size: 14px; font-weight: 600; color: {{accent}}"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Lire</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Read</sc-if> →</span>
+</a>
+</div>
+</div>
+</section>
+</sc-if>
+
+<!-- ============ CONTACT (en dur, sans formulaire) ============ -->
+<section id="contact" style="padding: 96px 24px; background: #101318; border-top: 1px solid #262B34">
+<div style="max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 720px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.08em; color: {{accent}}">{{contactNum}} — CONTACT</div>
+<h2 style="margin: 0; font-size: 44px; line-height: 1.12; font-weight: 600; letter-spacing: -0.02em; color: #FFFFFF"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Un projet, un poste, une idée ? Parlons-en.</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">A project, a role, an idea? Let's talk.</sc-if></h2>
+<p style="margin: 0; font-size: 17px; color: #B6BDC8"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Basé à Abidjan (GMT), disponible pour travailler sur site ou à distance.</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Based in Abidjan (GMT), available on-site or remote.</sc-if></p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
+<a href="mailto:[votre@email.com]" style="text-decoration: none; color: inherit; border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 26px; display: flex; flex-direction: column; gap: 16px">
+<span aria-hidden="true" style="width: 48px; height: 48px; border-radius: 12px; background: #252A33; display: flex; align-items: center; justify-content: center; color: {{accent}}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><polyline points="3 7 12 13 21 7"></polyline></svg></span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #A0A8B4">E-mail</span>
+<span style="font-size: 17px; font-weight: 500; color: #FFFFFF; word-break: break-all">[votre@email.com]</span>
+<span style="font-size: 14px; color: {{accent}}"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Écrire un e-mail</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Send an email</sc-if> ↗</span>
+</a>
+<a href="https://www.linkedin.com/in/gnonhoua-n-golo-ouattara-7b4180253" style="text-decoration: none; color: inherit; border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 26px; display: flex; flex-direction: column; gap: 16px">
+<span aria-hidden="true" style="width: 48px; height: 48px; border-radius: 12px; background: #252A33; display: flex; align-items: center; justify-content: center; color: {{accent}}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="3" y1="13" x2="21" y2="13"></line></svg></span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #A0A8B4">LinkedIn</span>
+<span style="font-size: 17px; font-weight: 500; color: #FFFFFF; word-break: break-all">in/gnonhoua-n-golo-ouattara</span>
+<span style="font-size: 14px; color: {{accent}}"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Voir mon profil</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">View my profile</sc-if> ↗</span>
+</a>
+<a href="https://wa.me/225XXXXXXXXXX" style="text-decoration: none; color: inherit; border: 1px solid #2D333D; border-radius: 14px; background: #1C2027; padding: 26px; display: flex; flex-direction: column; gap: 16px">
+<span aria-hidden="true" style="width: 48px; height: 48px; border-radius: 12px; background: #252A33; display: flex; align-items: center; justify-content: center; color: {{accent}}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"></path></svg></span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #A0A8B4">WhatsApp</span>
+<span style="font-size: 17px; font-weight: 500; color: #FFFFFF">+225 [XX XX XX XX XX]</span>
+<span style="font-size: 14px; color: {{accent}}"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Discuter sur WhatsApp</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Chat on WhatsApp</sc-if> ↗</span>
+</a>
+</div>
+</div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer style="padding: 28px 24px; background: #101318; border-top: 1px solid #23282F">
+<div style="max-width: 1160px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; font-size: 14px; color: #A0A8B4">
+<span>© 2026 Gnonhoua N'golo Ouattara · <sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Conçu et codé à Abidjan</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Designed and built in Abidjan</sc-if></span>
+<div style="display: flex; gap: 20px">
+<a href="Dashboard.dc.html" style="color: #C9CED6; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 10px 0">Admin</a>
+<a href="#top" style="color: #C9CED6; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 10px 0"><sc-if value="{{fr}}" hint-placeholder-val="{{true}}">Retour en haut</sc-if><sc-if value="{{en}}" hint-placeholder-val="{{false}}">Back to top</sc-if> ↑</a>
+</div>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#FF8A3D","options":["#FF8A3D","#38BDF8","#34D399","#A78BFA"]},"startLang":{"editor":"enum","options":["fr","en"],"default":"fr"},"showBlog":{"editor":"boolean","default":true},"previewOpen":{"editor":null,"default":false},"$preview":{"width":1440,"height":4700}}'>
+class Component extends DCLogic {
+  projects() {
+    var pal = ['#FF8A3D', '#7AA2F7', '#9ECE6A', '#BB9AF7', '#5C6370', '#E0AF68'];
+    var mk = function (seed) {
+      return [0, 1, 2, 3, 4, 5].map(function (i) {
+        return {
+          w: (28 + ((seed * 37 + i * 53) % 58)) + '%',
+          c: pal[(seed + i) % pal.length],
+          ind: (i === 0 || i === 5) ? '0px' : (((seed + i) % 3) * 16 + 16) + 'px'
+        };
+      });
+    };
+    var phFr = { ctx: '[Le contexte : pour qui, quel besoin.]', role: '[Votre rôle et vos responsabilités.]', feat: ['[Fonctionnalité 1]', '[Fonctionnalité 2]', '[Fonctionnalité 3]'], res: '[Le résultat : utilisateurs, chiffres, retours.]' };
+    var phEn = { ctx: '[Context: for whom, what need.]', role: '[Your role and responsibilities.]', feat: ['[Feature 1]', '[Feature 2]', '[Feature 3]'], res: '[Outcome: users, numbers, feedback.]' };
+    var ext = function (a, b) { var o = {}; for (var k in b) o[k] = b[k]; for (var j in a) o[j] = a[j]; return o; };
+    return [
+      { id: 1, cats: ['web'], year: '2025', pro: true, stack: ['[Front]', '[Back]', '[BDD]'],
+        fr: ext({ t: 'FlyFret — Site officiel', d: "Participation au développement du site officiel de l'entreprise d'expédition de colis, de la conception à la mise en ligne.", ctx: "FlyFret, entreprise d'expédition de colis à Abidjan. [Préciser l'objectif du site : visibilité, demandes de devis…]", role: 'Développeur Full Stack (temps partiel) — de la conception à la mise en ligne.' }, phFr),
+        en: ext({ t: 'FlyFret — Official website', d: 'Helped build the parcel shipping company website, from design to launch.', ctx: 'FlyFret, a parcel shipping company in Abidjan. [Specify the goal: visibility, quote requests…]', role: 'Full Stack Developer (part-time) — from design to launch.' }, phEn) },
+      { id: 2, cats: ['web', 'api'], year: '2025', pro: true, stack: ['[Front]', '[API]', '[BDD]'],
+        fr: ext({ t: 'FlyFret — Plateforme interne', d: "Plateforme interne de l'entreprise. [Préciser : gestion des expéditions, suivi, tableaux de bord…]", ctx: "Outil interne utilisé par les équipes de FlyFret. [Préciser le besoin métier.]", role: 'Conception et développement, front-end et back-end.' }, phFr),
+        en: ext({ t: 'FlyFret — Internal platform', d: 'Company internal platform. [Specify: shipment management, tracking, dashboards…]', ctx: 'Internal tool used by FlyFret teams. [Specify the business need.]', role: 'Design and development, front-end and back-end.' }, phEn) },
+      { id: 3, cats: ['mobile'], year: '[20XX]', pro: false, stack: ['[Mobile]', '[API]'],
+        fr: ext({ t: '[Application mobile]', d: '[Une phrase : le problème résolu et pour qui.]' }, phFr),
+        en: ext({ t: '[Mobile app]', d: '[One sentence: the problem solved and for whom.]' }, phEn) },
+      { id: 4, cats: ['api'], year: '[20XX]', pro: false, stack: ['[Back]', '[BDD]', '[Docker]'],
+        fr: ext({ t: '[API REST]', d: '[Ce que l’API expose, son architecture, ce qui la rend solide.]' }, phFr),
+        en: ext({ t: '[REST API]', d: '[What the API exposes, its architecture, what makes it solid.]' }, phEn) },
+      { id: 5, cats: ['web'], year: '2024', pro: false, stack: ['[Front]', '[Back]'],
+        fr: ext({ t: '[Projet de fin d’études ESATIC]', d: '[Le sujet, votre rôle et le résultat obtenu.]' }, phFr),
+        en: ext({ t: '[ESATIC final-year project]', d: '[The subject, your role and the outcome.]' }, phEn) },
+      { id: 6, cats: ['design'], year: '[20XX]', pro: false, stack: ['[Figma]'],
+        fr: ext({ t: '[Maquettes UI/UX]', d: '[Une refonte ou une maquette d’application dont vous êtes fier.]' }, phFr),
+        en: ext({ t: '[UI/UX mockups]', d: '[A redesign or an app mockup you are proud of.]' }, phEn) },
+      { id: 7, cats: ['mobile', 'api'], year: '[20XX]', pro: false, stack: ['[Mobile]', '[Back]'],
+        fr: ext({ t: '[Application full stack]', d: '[Application mobile avec son back-end : fonctionnalités clés.]' }, phFr),
+        en: ext({ t: '[Full stack app]', d: '[Mobile app with its back-end: key features.]' }, phEn) }
+    ].map(function (p) { p.lines = mk(p.id); return p; });
+  }
+
+  history(lang) {
+    var fr = lang === 'fr';
+    var b = function (arr) { return arr.map(function (t) { return { t: t }; }); };
+    return {
+      exp: [
+        { hash: 'a3f9c21', date: fr ? 'févr. 2025 → mars 2026' : 'Feb 2025 → Mar 2026',
+          title: fr ? 'Développeur Full Stack · FlyFret' : 'Full Stack Developer · FlyFret',
+          sub: fr ? 'Expédition de colis · Temps partiel · Abidjan, sur site' : 'Parcel shipping · Part-time · Abidjan, on-site',
+          bullets: b(fr ? ["Développement du site officiel de l'entreprise", "Conception et développement d'une plateforme interne", '[Un résultat chiffré : utilisateurs, délais, gains]']
+                        : ["Built the company's official website", 'Designed and built an internal platform', '[A measurable result: users, time, savings]']) },
+        { hash: '5d1e0b7', date: '[20XX]',
+          title: fr ? '[Stage, freelance ou projet associatif]' : '[Internship, freelance or volunteer project]',
+          sub: fr ? '[Structure · type de contrat · ville]' : '[Organisation · contract type · city]',
+          bullets: b(fr ? ['[Ce que vous y avez fait]', '[Ce que vous y avez appris]'] : ['[What you did there]', '[What you learned]']) }
+      ],
+      edu: [
+        { hash: 'e8b42f0', date: '2021 → 2024',
+          title: fr ? 'Licence professionnelle · Programmation informatique' : 'Professional Bachelor · Computer Programming',
+          sub: fr ? 'ESATIC — École Supérieure Africaine des TIC, Abidjan' : 'ESATIC — African Higher School of ICT, Abidjan',
+          bullets: b(fr ? ["[Projet de fin d'études]", '[Matières clés]'] : ['[Final-year project]', '[Key subjects]']) },
+        { hash: 'c07a9d3', date: '[20XX]',
+          title: fr ? '[Certification en ligne]' : '[Online certification]',
+          sub: fr ? '[Organisme]' : '[Provider]',
+          bullets: b(fr ? ['[Compétences validées]'] : ['[Skills validated]']) },
+        { hash: 'initial commit', date: '[20XX]',
+          title: fr ? 'Baccalauréat [série]' : 'High school diploma [track]',
+          sub: fr ? '[Établissement]' : '[School]',
+          bullets: b(fr ? ['[Mention, si pertinent]'] : ['[Honours, if relevant]']) }
+      ]
+    };
+  }
+
+  renderVals() {
+    var self = this;
+    var s = this.state || {};
+    var lang = s.lang || this.props.startLang || 'fr';
+    var fr = lang === 'fr';
+    var cat = s.cat || 'all';
+    var per = 3;
+    var P = this.projects();
+    var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
+    var cats = [
+      { id: 'all', fr: 'Tous', en: 'All' },
+      { id: 'web', fr: 'Web', en: 'Web' },
+      { id: 'mobile', fr: 'Mobile', en: 'Mobile' },
+      { id: 'api', fr: 'Back-end / API', en: 'Back-end / API' },
+      { id: 'design', fr: 'UI/UX', en: 'UI/UX' }
+    ];
+    var catLabel = {};
+    cats.forEach(function (c) { catLabel[c.id] = c[lang]; });
+    var tagOf = function (p) { return p.cats.map(function (c) { return catLabel[c].toUpperCase(); }).join(' · '); };
+
+    var list = cat === 'all' ? P : P.filter(function (p) { return p.cats.indexOf(cat) >= 0; });
+    var pages = Math.max(1, Math.ceil(list.length / per));
+    var page = Math.min(s.page || 0, pages - 1);
+
+    var items = list.slice(page * per, page * per + per).map(function (p) {
+      return {
+        title: p[lang].t, desc: p[lang].d, tag: tagOf(p), year: p.year, pro: p.pro,
+        proLabel: fr ? 'Expérience professionnelle' : 'Professional work',
+        stack: p.stack.map(function (x) { return { label: x }; }),
+        lines: p.lines,
+        more: fr ? 'Voir les détails' : 'View details',
+        aria: (fr ? 'Voir les détails du projet ' : 'View project details: ') + p[lang].t,
+        open: function () { self.setState({ open: p.id, shot: 0 }); }
+      };
+    });
+
+    var filters = cats.map(function (c) {
+      var n = c.id === 'all' ? P.length : P.filter(function (p) { return p.cats.indexOf(c.id) >= 0; }).length;
+      return { label: c[lang], count: n, active: c.id === cat, inactive: c.id !== cat,
+        pick: function () { self.setState({ cat: c.id, page: 0, open: null }); } };
+    });
+
+    var mkDots = function (n, cur, key, prefix) {
+      var out = [];
+      for (var i = 0; i < n; i++) {
+        (function (k) {
+          out.push({ active: k === cur, inactive: k !== cur, label: prefix + ' ' + (k + 1),
+            go: function () { var o = {}; o[key] = k; self.setState(o); } });
+        })(i);
+      }
+      return out;
+    };
+
+    // Détail projet
+    var openId = s.open !== undefined ? s.open : (this.props.previewOpen ? 1 : null);
+    var cur = null, curIdx = -1;
+    var pool = list.some(function (p) { return p.id === openId; }) ? list : P;
+    pool.forEach(function (p, i) { if (p.id === openId) { cur = p; curIdx = i; } });
+    var nShots = 3;
+    var shot = s.shot || 0;
+    var detail = { lines: [], feat: [], stack: [] };
+    if (cur) {
+      detail = {
+        title: cur[lang].t, desc: cur[lang].d, ctx: cur[lang].ctx, role: cur[lang].role, res: cur[lang].res,
+        feat: cur[lang].feat.map(function (t) { return { t: t }; }),
+        stack: cur.stack.map(function (x) { return { label: x }; }),
+        tag: tagOf(cur), year: cur.year, pro: cur.pro,
+        proLabel: fr ? 'Expérience professionnelle' : 'Professional work',
+        demoLabel: fr ? 'Voir la démo' : 'Live demo',
+        shotLabel: (fr ? '[Capture ' : '[Screenshot ') + (shot + 1) + ' / ' + nShots + ']',
+        lines: P[(cur.id + shot) % P.length].lines
+      };
+    }
+    var shots = [];
+    for (var j = 0; j < nShots; j++) {
+      (function (k) {
+        shots.push({ n: pad(k + 1), active: k === shot, inactive: k !== shot,
+          label: (fr ? 'Capture ' : 'Screenshot ') + (k + 1),
+          go: function () { self.setState({ shot: k }); } });
+      })(j);
+    }
+
+    // Historique (carrousels)
+    var H = this.history(lang);
+    var ei = Math.min(s.exp || 0, H.exp.length - 1);
+    var di = Math.min(s.edu || 0, H.edu.length - 1);
+
+    return {
+      accent: this.props.accent ?? '#FF8A3D',
+      showBlog: this.props.showBlog ?? true,
+      contactNum: (this.props.showBlog ?? true) ? '07' : '06',
+      fr: fr,
+      en: !fr,
+      setFr: function () { self.setState({ lang: 'fr' }); },
+      setEn: function () { self.setState({ lang: 'en' }); },
+
+      filters: filters,
+      items: items,
+      dots: mkDots(pages, page, 'page', 'Page'),
+      showNav: pages > 1,
+      counter: pad(page + 1) + ' / ' + pad(pages),
+      prev: function () { self.setState({ page: (page - 1 + pages) % pages }); },
+      next: function () { self.setState({ page: (page + 1) % pages }); },
+
+      showDetail: !!cur,
+      showGrid: true,
+      detail: detail,
+      shots: shots,
+      closeDetail: function () { self.setState({ open: null }); },
+      prevProject: function () { if (cur) self.setState({ open: pool[(curIdx - 1 + pool.length) % pool.length].id, shot: 0 }); },
+      nextProject: function () { if (cur) self.setState({ open: pool[(curIdx + 1) % pool.length].id, shot: 0 }); },
+      prevShot: function () { self.setState({ shot: (shot - 1 + nShots) % nShots }); },
+      nextShot: function () { self.setState({ shot: (shot + 1) % nShots }); },
+
+      exp: H.exp[ei],
+      expCounter: pad(ei + 1) + ' / ' + pad(H.exp.length),
+      expDots: mkDots(H.exp.length, ei, 'exp', fr ? 'Expérience' : 'Experience'),
+      expPrev: function () { self.setState({ exp: (ei - 1 + H.exp.length) % H.exp.length }); },
+      expNext: function () { self.setState({ exp: (ei + 1) % H.exp.length }); },
+      edu: H.edu[di],
+      eduCounter: pad(di + 1) + ' / ' + pad(H.edu.length),
+      eduDots: mkDots(H.edu.length, di, 'edu', fr ? 'Formation' : 'Education'),
+      eduPrev: function () { self.setState({ edu: (di - 1 + H.edu.length) % H.edu.length }); },
+      eduNext: function () { self.setState({ edu: (di + 1) % H.edu.length }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
